@@ -12,7 +12,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table
+@Entity
+@Table(name = "comment")
 public class Comment {
 
     @Id
@@ -20,7 +21,7 @@ public class Comment {
     private int id;
     @ManyToOne
     private User user;
-    @OneToMany
+    @ManyToOne
     private Film film;
     private String text;
 }

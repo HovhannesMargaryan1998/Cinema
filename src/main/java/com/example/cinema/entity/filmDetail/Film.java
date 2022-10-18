@@ -8,13 +8,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table
+@Table(name = "film")
 public class Film {
 
     @Id
@@ -31,5 +32,9 @@ public class Film {
     private String pictureUrl;
     @Enumerated(value = EnumType.STRING)
     private Status status;
+    @ManyToOne
+    private Director director;
+    @ManyToMany
+    private List<Actor> actors;
 
 }

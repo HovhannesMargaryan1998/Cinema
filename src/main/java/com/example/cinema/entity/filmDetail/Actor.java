@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -32,4 +33,7 @@ public class Actor {
     private int age;
     private String pictureUrl;
     private String biography;
+    @ManyToMany
+    private List<Film> films;
+
 }

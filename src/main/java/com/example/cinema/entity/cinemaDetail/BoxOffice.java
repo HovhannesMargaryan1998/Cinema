@@ -22,7 +22,7 @@ public class BoxOffice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @DateTimeFormat(pattern = ("HH-MM-SS"))
+    @DateTimeFormat(pattern = ("HH-mm-ss"))
     private Date time;
     private int duration_min;
     private String ageLimit;
@@ -33,5 +33,5 @@ public class BoxOffice {
     private Cinema cinema;
     @ManyToOne
     private Film film;
-
+    private int seatingNumber;
 }

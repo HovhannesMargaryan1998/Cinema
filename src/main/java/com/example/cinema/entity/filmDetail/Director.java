@@ -8,13 +8,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table
+@Table(name = "director")
 public class Director {
 
     @Id
@@ -32,5 +33,7 @@ public class Director {
     private int age;
     private String pictureUrl;
     private String biography;
+    @OneToMany
+    List<Film> films;
 
 }
