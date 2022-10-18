@@ -4,7 +4,67 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4ef3f97-2f92-4a09-a5fd-5a4abd5c3f36" name="Changes" comment="update vew" />
+    <list default="true" id="f4ef3f97-2f92-4a09-a5fd-5a4abd5c3f36" name="Changes" comment="update vew">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/controller/MainController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/cinemaDetail/BoxOffice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/cinemaDetail/Cinema.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/filmDetail/Actor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/filmDetail/Comment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/filmDetail/Director.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/filmDetail/Film.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/filmDetail/Status.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/userDetail/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/userDetail/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/add-item.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/add-item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/catalog.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/catalog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/comments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/comments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/edit-user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/edit-user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/forgot.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/forgot.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/reviews.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cinema/blog.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cinema/blog.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cinema/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cinema/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cinema/single.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cinema/single.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/catalog1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/catalog1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/catalog2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/catalog2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/details1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/details1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/details2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/details2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/faq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/forgot.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/forgot.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/pricing.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/pricing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/privacy.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/privacy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/cinema/blog.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/cinema/blog.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/cinema/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/cinema/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/cinema/single.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/cinema/single.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/catalog1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/catalog1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/catalog2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/catalog2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/details1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/details1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/details2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/details2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/faq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/forgot.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/forgot.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/pricing.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/pricing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/privacy.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/privacy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/signup.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,11 +88,15 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
@@ -51,24 +115,33 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Vahag/IdeaProjects/Cinema/src/main/resources/templates/admin&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;2d365e421520ea39d539527b81cd069e&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Vahag/IdeaProjects/Cinema/src/main/resources/templates/admin",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "spring.configuration.checksum": "2d365e421520ea39d539527b81cd069e"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\templates\admin" />
@@ -78,11 +151,11 @@
       <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\static\mainAndAdmin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\templates" />
       <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\static\css" />
       <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\static\maps\api" />
       <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\static" />
       <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\static\main" />
-      <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\static\img" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.CinemaApplication (1)">
