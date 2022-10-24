@@ -36,5 +36,8 @@ public class Film {
     private Director director;
     @ManyToMany
     private List<Actor> actors;
+    @OneToMany
+    private List<Genre> genres;
+
 
 }

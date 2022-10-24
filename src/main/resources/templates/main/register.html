@@ -32,11 +32,19 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="sign__content">
-					<!-- authorization form -->
+					<!-- registration form -->
 					<form action="#" class="sign__form">
-						<a href="../index.html" class="sign__logo">
+						<a href="/home" class="sign__logo">
 							<img src="/img/logo.svg" alt="">
 						</a>
+
+						<div class="sign__group">
+							<input type="text" class="sign__input" placeholder="Name">
+						</div>
+
+						<div class="sign__group">
+							<input type="text" class="sign__input" placeholder="surname">
+						</div>
 
 						<div class="sign__group">
 							<input type="text" class="sign__input" placeholder="Email">
@@ -48,16 +56,14 @@
 
 						<div class="sign__group sign__group--checkbox">
 							<input id="remember" name="remember" type="checkbox" checked="checked">
-							<label for="remember">Remember Me</label>
+							<label for="remember">I agree to the Privacy Policy</label>
 						</div>
 						
-						<button class="sign__btn" type="button">Sign in</button>
+						<button class="sign__btn" type="button">Sign up</button>
 
-						<span class="sign__text">Don't have an account? <a href="signup.html">Sign up!</a></span>
-
-						<span class="sign__text"><a href="forgot.html">Forgot password?</a></span>
+						<span class="sign__text">Already have an account? <a href="/user/login">Sign in!</a></span>
 					</form>
-					<!-- end authorization form -->
+					<!-- registration form -->
 				</div>
 			</div>
 		</div>
