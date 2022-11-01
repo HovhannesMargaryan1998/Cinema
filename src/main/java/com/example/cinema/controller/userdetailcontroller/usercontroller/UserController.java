@@ -1,4 +1,4 @@
-package com.example.cinema.controller.userdetailcontroller;
+package com.example.cinema.controller.userdetailcontroller.usercontroller;
 
 import com.example.cinema.entity.userDetail.User;
 import com.example.cinema.service.UserService;
@@ -39,15 +39,11 @@ public class UserController {
     }
 
     @PostMapping("register/user")
-    public String registerUser(@ModelAttribute User user,
-                               @RequestParam("image") MultipartFile multipartFile,
+    public String registerUser(@ModelAttribute User user, @RequestParam("image") MultipartFile multipartFile,
                                ModelMap modelMap) throws IOException {
-        if (!multipartFile.isEmpty() && multipartFile.getSize() > 0) {
-            if (multipartFile.getContentType() != null && !multipartFile.getContentType().contains("image")) {
-                modelMap.addAttribute("errorMessageFile", "Please choose only image");
-                return "main/mainHome";
-            }
-
+        if (userService.isPictureExist(multipartFile)){
+            modelMap.addAttribute("errorMessageFile", "Please choose only image");
+            return "main/mainHome";
         }
         userService.registerUser(user, multipartFile);
         return "redirect:/user/login";

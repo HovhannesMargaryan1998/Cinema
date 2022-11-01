@@ -48,6 +48,7 @@
 
 						<div class="sign__group">
 							<input type="file" class="sign__input" name="image" id="image" accept="image/*">
+							<span th:if="errorMessageFile != null" th:text="${errorMessageFile}"></span>
 						</div>
 
 						<div class="sign__group">
