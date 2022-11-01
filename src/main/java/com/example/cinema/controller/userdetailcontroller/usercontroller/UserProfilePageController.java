@@ -1,4 +1,4 @@
-package com.example.cinema.controller.userdetailcontroller;
+package com.example.cinema.controller.userdetailcontroller.usercontroller;
 
 import com.example.cinema.entity.userDetail.Role;
 import com.example.cinema.entity.userDetail.User;
