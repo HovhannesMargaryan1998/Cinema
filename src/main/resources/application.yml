@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/Cinema
+    username: root
+    password: root
+
+cinema:
+   image: C:\\Users\\Armen\\IdeaProjects\\Cinema\\image

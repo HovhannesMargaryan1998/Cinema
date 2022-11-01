@@ -4,66 +4,176 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4ef3f97-2f92-4a09-a5fd-5a4abd5c3f36" name="Changes" comment="update vew">
+    <list default="true" id="f4ef3f97-2f92-4a09-a5fd-5a4abd5c3f36" name="Changes" comment="create security">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_7_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_7_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_7_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_5_7_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_7_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/config/SpringSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/controller/userdetailcontroller/MyControllerAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/controller/userdetailcontroller/UserProfilePageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/security/CurrentUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/security/UserDetailsImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/3docean-light-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/KFOiCnqEu92Fr1Mu51QrEzAdKg.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/KFOjCnqEu92Fr1Mu51S7ACc6CsE.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/KFOjCnqEu92Fr1Mu51TLBCc6CsE.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/KFOjCnqEu92Fr1Mu51TjASc6CsE.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/KFOjCnqEu92Fr1Mu51TzBic6CsE.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/KFOkCnqEu92Fr1MmgVxIIzc.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/KFOkCnqEu92Fr1Mu51xIIzc.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/KFOlCnqEu92Fr1MmEU9fBBc9.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/KFOlCnqEu92Fr1MmSU5fBBc9.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/KFOlCnqEu92Fr1MmWUlfBBc9.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/KFOlCnqEu92Fr1MmYUtfBBc9.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/KFOmCnqEu92Fr1Mu4mxP.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/Montserrat-Light.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/ScreenForSeating_450.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/activeden-light-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/audiojungle-light-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/author.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/btn-more-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/btn-more.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/codecanyon-light-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/cover4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/cover5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/cover6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/google-play-badge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/home__bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/icon1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/icon2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/icon3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/icon4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVc.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/movie-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/movie-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/movie-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/movie-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/movie-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/movie-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/order-arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/photodune-light-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/post-thumb-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/post-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/project-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/project-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/project-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/project-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/project-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/project-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/qte-b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/qte-t.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/themeforest-light-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/thumb-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/thumb-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/thumb-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/thumb-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/thumb-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/user-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/user-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44_[Changes]1/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_10_2022_19_44__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/controller/MainController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/cinemaDetail/BoxOffice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/cinemaDetail/Cinema.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/filmDetail/Actor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/filmDetail/Comment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/filmDetail/Director.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/filmDetail/Film.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/filmDetail/Status.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/userDetail/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/userDetail/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cinema.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Cinema.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/CinemaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/CinemaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/controller/pagedetailcontroller/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/controller/pagedetailcontroller/MainPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/controller/userdetailcontroller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/controller/userdetailcontroller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/controller/userdetailcontroller/UserProfilePage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/userDetail/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/entity/userDetail/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/add-item.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/add-item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/add-item.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/addItem.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/catalog.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/catalog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/comments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/comments.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/edit-user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/edit-user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/forgot.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/forgot.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/adminPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/reviews.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/signin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/signup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cinema/blog.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cinema/blog.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cinema/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cinema/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cinema/single.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cinema/single.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/catalog1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/catalog1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/catalog2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/catalog2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/contacts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/details1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/details1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/details2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/details2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/forgot.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/forgot.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/pricing.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/pricing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/privacy.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/privacy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/signin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/cinema/blog.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/cinema/blog.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/cinema/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/cinema/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/cinema/single.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/cinema/single.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/catalog1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/catalog1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/catalog2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/catalog2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/contacts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/details1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/details1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/details2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/details2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/forgot.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/forgot.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/pricing.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/pricing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/privacy.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/privacy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/signin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/mainHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/mainHome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/userProfilePage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/userProfilePage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/CinemaApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/CinemaApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/fonts/Montserrat-Light.otf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/fonts/Montserrat-Light.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/img/film.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/img/film.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/icon/favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/Download_on_the_App_Store_Badge.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/angle-down.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/arrow-right.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/check.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/comments.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/compress-arrows.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/covers/cover.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/covers/cover2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/covers/cover3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/covers/cover4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/covers/cover5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/covers/cover6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/credit-card.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/ellipsis-h.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/expand-arrows.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/film.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/gallery/project-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/gallery/project-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/gallery/project-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/gallery/project-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/gallery/project-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/gallery/project-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/google-play-badge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/home/home__bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/multiply.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/partners/3docean-light-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/partners/activeden-light-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/partners/audiojungle-light-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/partners/codecanyon-light-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/partners/photodune-light-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/partners/themeforest-light-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/play.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/star-half-alt.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/star.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/mainAndAdmin/img/user.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVc.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVc.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOiCnqEu92Fr1Mu51QrEzAdKg.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOiCnqEu92Fr1Mu51QrEzAdKg.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOjCnqEu92Fr1Mu51S7ACc6CsE.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOjCnqEu92Fr1Mu51S7ACc6CsE.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOjCnqEu92Fr1Mu51TLBCc6CsE.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOjCnqEu92Fr1Mu51TLBCc6CsE.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOjCnqEu92Fr1Mu51TjASc6CsE.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOjCnqEu92Fr1Mu51TjASc6CsE.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOjCnqEu92Fr1Mu51TzBic6CsE.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOjCnqEu92Fr1Mu51TzBic6CsE.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOkCnqEu92Fr1MmgVxIIzc.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOkCnqEu92Fr1MmgVxIIzc.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOkCnqEu92Fr1Mu51xIIzc.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOkCnqEu92Fr1Mu51xIIzc.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fBBc9.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fBBc9.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBBc9.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBBc9.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOlCnqEu92Fr1MmWUlfBBc9.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOlCnqEu92Fr1MmWUlfBBc9.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOlCnqEu92Fr1MmYUtfBBc9.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOlCnqEu92Fr1MmYUtfBBc9.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxP.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxP.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/vendors/bootstrap/fonts/glyphicons-halflings-regular-1.eot" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/vendors/bootstrap/fonts/glyphicons-halflings-regular-1.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/vendors/bootstrap/fonts/glyphicons-halflings-regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/vendors/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/vendors/bootstrap/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/vendors/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/vendors/bootstrap/fonts/glyphicons-halflings-regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/vendors/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/vendors/bootstrap/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/vendors/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/vendors/font-awesome/fonts/fontawesome-webfont-1.eot" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/vendors/font-awesome/fonts/fontawesome-webfont-1.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/vendors/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/vendors/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/vendors/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/vendors/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/vendors/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/vendors/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/vendors/font-awesome/fonts/fontawesome-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/vendors/font-awesome/fonts/fontawesome-webfont.woff2" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +184,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,6 +197,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/resources/static/js/plyr.min.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -115,47 +231,57 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Vahag/IdeaProjects/Cinema/src/main/resources/templates/admin",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "spring.configuration.checksum": "2d365e421520ea39d539527b81cd069e"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Armen/IdeaProjects/Cinema/src/main/java/com/example/cinema&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.rainbow.brackets&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;2d365e421520ea39d539527b81cd069e&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.cinema.entity.userDetail" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Armen\IdeaProjects\Cinema\src\main\java\com\example\cinema" />
       <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\templates\admin" />
       <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\static\js" />
       <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\static\css" />
       <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\static\img" />
-      <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\static\mainAndAdmin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Armen\IdeaProjects\Cinema\src\main\resources\templates\main" />
       <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\templates" />
       <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\static\css" />
       <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\static\maps\api" />
       <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\static" />
-      <recent name="C:\Users\Vahag\IdeaProjects\Cinema\src\main\resources\static\main" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.cinema.controller.userdetailcontroller" />
+      <recent name="com.example.cinema.repository" />
+      <recent name="com.example.cinema.security" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.CinemaApplication (1)">
@@ -197,6 +323,21 @@
       <workItem from="1666025401319" duration="1393000" />
       <workItem from="1666099185124" duration="824000" />
       <workItem from="1666105102719" duration="1337000" />
+      <workItem from="1666171836277" duration="6621000" />
+      <workItem from="1666257214067" duration="154000" />
+      <workItem from="1666273658273" duration="10186000" />
+      <workItem from="1666526416505" duration="408000" />
+      <workItem from="1666632889202" duration="1444000" />
+      <workItem from="1666711179911" duration="731000" />
+      <workItem from="1666714869664" duration="7728000" />
+      <workItem from="1666980271573" duration="41000" />
+      <workItem from="1667234333535" duration="245000" />
+      <workItem from="1667234666006" duration="1702000" />
+      <workItem from="1667237148594" duration="20000" />
+      <workItem from="1667238165059" duration="307000" />
+      <workItem from="1667238790769" duration="19000" />
+      <workItem from="1667239577800" duration="6080000" />
+      <workItem from="1667284855715" duration="9290000" />
     </task>
     <task id="LOCAL-00001" summary="update vew">
       <created>1665945545145</created>
@@ -205,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665945545145</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="create controllers">
+      <created>1666633876385</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666633876385</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +372,32 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update vew" />
-    <option name="LAST_COMMIT_MESSAGE" value="update vew" />
+    <MESSAGE value="create controllers" />
+    <MESSAGE value="create security" />
+    <option name="LAST_COMMIT_MESSAGE" value="create security" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/cinema/security/CurrentUser.java</url>
+          <line>9</line>
+          <properties class="com.example.cinema.security.CurrentUser" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/cinema/security/UserDetailsImpl.java</url>
+          <line>20</line>
+          <properties class="com.example.cinema.security.UserDetailsImpl" method="loadUserByUsername">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
