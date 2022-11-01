@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,17 +33,17 @@
 			<div class="col-12">
 				<div class="sign__content">
 					<!-- authorization form -->
-					<form action="#" class="sign__form">
+					<form action="/login" class="sign__form" method="post">
 						<a href="/home" class="sign__logo">
 							<img src="/img/logo.svg" alt="">
 						</a>
 
 						<div class="sign__group">
-							<input type="text" class="sign__input" placeholder="Email">
+							<input type="text" class="sign__input" name="username" placeholder="Email">
 						</div>
 
 						<div class="sign__group">
-							<input type="password" class="sign__input" placeholder="Password">
+							<input type="password" class="sign__input" name="password" placeholder="Password">
 						</div>
 
 						<div class="sign__group sign__group--checkbox">
@@ -51,7 +51,7 @@
 							<label for="remember">Remember Me</label>
 						</div>
 						
-						<button class="sign__btn" type="button">Sign in</button>
+						<input class="sign__btn" type="submit">Sign in</input>
 
 						<span class="sign__text">Don't have an account? <a href="/register">Sign up!</a></span>
 

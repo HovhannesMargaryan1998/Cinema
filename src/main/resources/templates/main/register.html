@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="UTF-8">
+<!--	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
@@ -33,25 +33,29 @@
 			<div class="col-12">
 				<div class="sign__content">
 					<!-- registration form -->
-					<form action="#" class="sign__form">
+					<form action="register/user" class="sign__form" method="post" enctype="multipart/form-data">
 						<a href="/home" class="sign__logo">
 							<img src="/img/logo.svg" alt="">
 						</a>
 
 						<div class="sign__group">
-							<input type="text" class="sign__input" placeholder="Name">
+							<input type="text" class="sign__input" name="name" placeholder="Name">
 						</div>
 
 						<div class="sign__group">
-							<input type="text" class="sign__input" placeholder="surname">
+							<input type="text" class="sign__input" name="surname" placeholder="surname">
 						</div>
 
 						<div class="sign__group">
-							<input type="text" class="sign__input" placeholder="Email">
+							<input type="file" class="sign__input" name="image" id="image" accept="image/*">
 						</div>
 
 						<div class="sign__group">
-							<input type="password" class="sign__input" placeholder="Password">
+							<input type="email" class="sign__input" name="email" placeholder="Email">
+						</div>
+
+						<div class="sign__group">
+							<input type="password" class="sign__input" name="password" placeholder="Password">
 						</div>
 
 						<div class="sign__group sign__group--checkbox">
@@ -59,7 +63,7 @@
 							<label for="remember">I agree to the Privacy Policy</label>
 						</div>
 						
-						<button class="sign__btn" type="button">Sign up</button>
+						<input class="sign__btn" type="submit" >Sign up</input>
 
 						<span class="sign__text">Already have an account? <a href="/user/login">Sign in!</a></span>
 					</form>
