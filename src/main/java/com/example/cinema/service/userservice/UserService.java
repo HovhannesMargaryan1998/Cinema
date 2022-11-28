@@ -1,15 +1,15 @@
-package com.example.cinema.service;
+package com.example.cinema.service.userservice;
 
 import com.example.cinema.entity.userDetail.Role;
 import com.example.cinema.entity.userDetail.User;
 import com.example.cinema.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.multipart.MultipartFile;
-import org.apache.commons.io.IOUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,6 +18,7 @@ import java.io.InputStream;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserService {
 
     private final UserRepository userRepository;
@@ -25,8 +26,7 @@ public class UserService {
     @Value("${cinema.image}")
     private String folderPath;
 
-
-    public void registerUser(User user, MultipartFile multipartFile) throws IOException {
+    public void registerUser(User user, MultipartFile multipartFile)  {
         if (!multipartFile.isEmpty() && multipartFile.getSize() > 0) {
             user.setPictureUrl(createUserPicture(multipartFile));
         }
@@ -34,29 +34,37 @@ public class UserService {
         user.setRole(Role.USER);
         user.setEnable(true);
         userRepository.save(user);
+        log.info("user registered {}", user.getEmail());
     }
 
-    public byte[] getUserImage(String fileName) throws IOException {
-        InputStream inputStream = new FileInputStream(folderPath + File.separator + fileName);
-        return IOUtils.toByteArray(inputStream);
+    public byte[] getUserImage(String fileName) {
+        try {
+            InputStream inputStream = new FileInputStream(folderPath + File.separator + fileName);
+            return IOUtils.toByteArray(inputStream);
+        }catch (IOException e){
+            log.error("method getUserImage in UserService failed", e);
+            return null;
+        }
     }
 
-    public boolean isPictureExist(MultipartFile multipartFile) {
+    public boolean isPictureNotAllowedType(MultipartFile multipartFile) {
         if (!multipartFile.isEmpty() && multipartFile.getSize() > 0) {
-            if (multipartFile.getContentType() != null && !multipartFile.getContentType().contains("image")) {
-                return true;
-            }
+            return multipartFile.getContentType() != null && !multipartFile.getContentType().contains("image");
         }
         return false;
     }
 
-    private String createUserPicture(MultipartFile multipartFile) throws IOException {
+    private String createUserPicture(MultipartFile multipartFile) {
         String fileName = System.nanoTime() + "_" + multipartFile.getOriginalFilename();
         String fullName = folderPath + File.separator + fileName;
         File file = new File(fullName);
-        multipartFile.transferTo(file);
+        try {
+            multipartFile.transferTo(file);
+        } catch (IOException e) {
+            log.error("method transferTo in UserService failed", e);
+            return null;
+        }
         return fileName;
     }
-
 
 }

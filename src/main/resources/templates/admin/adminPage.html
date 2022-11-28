@@ -56,6 +56,7 @@
 	<div class="sidebar__user">
 		<div class="sidebar__user-img">
 			<img th:if="${user.pictureUrl != null}"th:src="@{/getImage(picName=${user.pictureUrl})}" src="/img/user.svg" alt="">
+<!--			<img th:if="${user.pictureUrl != null}"th:src="@{/getImage(picName=${null})}" th:text="Failed load image" alt="">-->
 			<img th:if="${user.pictureUrl == null}" src="/img/user.svg"  alt="">
 		</div>
 
