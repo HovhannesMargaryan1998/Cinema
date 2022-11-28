@@ -26,8 +26,11 @@ public class Film {
     private Date premiere;
     @Column(name = "duration_minute")
     private int durationMinute;
+    @Column(name = "country")
     private String country;
+    @Column(name = "rating")
     private Double rating;
+    @Column(name = "videoUrl")
     private String videoUrl;
     private String pictureUrl;
     @Enumerated(value = EnumType.STRING)

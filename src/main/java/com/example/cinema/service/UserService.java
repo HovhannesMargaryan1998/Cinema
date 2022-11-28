@@ -1,6 +1,6 @@
 package com.example.cinema.service;
 
-import com.example.cinema.dto.UpdateUserDto;
+import com.example.cinema.dto.UserRequestDto;
 import com.example.cinema.entity.userDetail.Role;
 import com.example.cinema.entity.userDetail.User;
 import com.example.cinema.repository.UserRepository;
@@ -60,19 +60,19 @@ public class UserService {
     }
 
 
-    public void update(int id, UpdateUserDto updateUserDto) {
+    public void update(int id, UserRequestDto userRequestDto) {
      userRepository.findById(id).ifPresent(user -> {
-         if (updateUserDto.getName()!=null){
-             user.setName(updateUserDto.getName());
+         if (userRequestDto.getName()!=null){
+             user.setName(userRequestDto.getName());
          }
-         if (updateUserDto.getSurname()!=null){
-             user.setSurname(updateUserDto.getSurname());
+         if (userRequestDto.getSurname()!=null){
+             user.setSurname(userRequestDto.getSurname());
          }
-         if (updateUserDto.getEmail()!=null){
-             user.setEmail(updateUserDto.getEmail());
+         if (userRequestDto.getEmail()!=null){
+             user.setEmail(userRequestDto.getEmail());
          }
-         if (updateUserDto.getPassword()!=null){
-             user.setPassword(passwordEncoder.encode(updateUserDto.getPassword()));
+         if (userRequestDto.getPassword()!=null){
+             user.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
          }
          user.setRole(Role.USER);
          user.setEnable(true);

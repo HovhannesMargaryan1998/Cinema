@@ -1,6 +1,6 @@
 package com.example.cinema.controller.userdetailcontroller.usercontroller;
 
-import com.example.cinema.dto.UpdateUserDto;
+import com.example.cinema.dto.UserRequestDto;
 import com.example.cinema.entity.userDetail.User;
 import com.example.cinema.security.CurrentUser;
 import com.example.cinema.service.UserService;
@@ -62,9 +62,9 @@ public class UserController {
         return "saveUser";
     }
 
-    @PostMapping("/editUser/{id}")
-    public String editUserPage(@PathVariable("id") int id, @ModelAttribute UpdateUserDto updateUserDto) {
-        userService.update(id, updateUserDto);
+    @PostMapping("/edit/user/{id}")
+    public String editUserPage(@PathVariable("id") int id, @ModelAttribute UserRequestDto userRequestDto) {
+        userService.update(id, userRequestDto);
         return "redirect:/";
     }
 
