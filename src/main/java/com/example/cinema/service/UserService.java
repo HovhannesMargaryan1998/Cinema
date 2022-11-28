@@ -1,5 +1,6 @@
 package com.example.cinema.service;
 
+import com.example.cinema.dto.UpdateUserDto;
 import com.example.cinema.entity.userDetail.Role;
 import com.example.cinema.entity.userDetail.User;
 import com.example.cinema.repository.UserRepository;
@@ -7,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.multipart.MultipartFile;
 import org.apache.commons.io.IOUtils;
 
@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -59,4 +60,30 @@ public class UserService {
     }
 
 
+    public void update(int id, UpdateUserDto updateUserDto) {
+     userRepository.findById(id).ifPresent(user -> {
+         if (updateUserDto.getName()!=null){
+             user.setName(updateUserDto.getName());
+         }
+         if (updateUserDto.getSurname()!=null){
+             user.setSurname(updateUserDto.getSurname());
+         }
+         if (updateUserDto.getEmail()!=null){
+             user.setEmail(updateUserDto.getEmail());
+         }
+         if (updateUserDto.getPassword()!=null){
+             user.setPassword(passwordEncoder.encode(updateUserDto.getPassword()));
+         }
+         user.setRole(Role.USER);
+         user.setEnable(true);
+         user.setId(id);
+         userRepository.save(user);
+     });
+
+
+    }
+
+    public Optional<User> findById(int id) {
+        return userRepository.findById(id);
+    }
 }

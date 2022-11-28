@@ -536,7 +536,8 @@
 				<div class="row row--grid">
 					<!-- details form -->
 					<div class="col-12 col-lg-6">
-						<form action="#" class="profile__form">
+						<form th:action="@{|/editUser/${user.id}|}" class="profile__form" method="post" >
+
 							<div class="row">
 								<div class="col-12">
 									<h4 class="profile__title">Profile details</h4>
@@ -544,34 +545,36 @@
 
 								<div class="col-12 col-md-6 col-lg-12 col-xl-6">
 									<div class="profile__group">
-										<label class="profile__label" for="username">Username</label>
-										<input id="username" type="text" name="username" class="profile__input" placeholder="User 123">
+										<label class="profile__label" for="username">Name</label>
+										<input id="username" type="text" name="name" th:value= "${user.name}" class="profile__input" placeholder="User 123">
 									</div>
 								</div>
+
+								<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+									<div class="profile__group">
+										<label class="profile__label" for="firstname">Surname</label>
+										<input id="firstname" type="text" name="surname" th:value= "${user.surname}" class="profile__input" placeholder="John">
+									</div>
+								</div>
+
 
 								<div class="col-12 col-md-6 col-lg-12 col-xl-6">
 									<div class="profile__group">
 										<label class="profile__label" for="email">Email</label>
-										<input id="email" type="text" name="email" class="profile__input" placeholder="email@email.com">
+										<input id="email" type="text" name="email" th:value= "${user.email}" class="profile__input" placeholder="email@email.com">
 									</div>
 								</div>
 
-								<div class="col-12 col-md-6 col-lg-12 col-xl-6">
-									<div class="profile__group">
-										<label class="profile__label" for="firstname">First Name</label>
-										<input id="firstname" type="text" name="firstname" class="profile__input" placeholder="John">
-									</div>
-								</div>
 
 								<div class="col-12 col-md-6 col-lg-12 col-xl-6">
 									<div class="profile__group">
-										<label class="profile__label" for="lastname">Last Name</label>
-										<input id="lastname" type="text" name="lastname" class="profile__input" placeholder="Doe">
+										<label class="profile__label" for="lastname">Password</label>
+										<input id="lastname" type="text" name="password"  class="profile__input" placeholder="*****">
 									</div>
 								</div>
 
 								<div class="col-12">
-									<button class="profile__btn" type="button">Save</button>
+									<button class="profile__btn" type=submit>Save</button>
 								</div>
 							</div>
 						</form>
@@ -581,6 +584,7 @@
 					<!-- password form -->
 					<div class="col-12 col-lg-6">
 						<form action="#" class="profile__form">
+
 							<div class="row">
 								<div class="col-12">
 									<h4 class="profile__title">Change password</h4>
