@@ -1,8 +1,11 @@
 package com.example.cinema.controller.userdetailcontroller.usercontroller;
 
+import com.example.cinema.dto.UserRequestDto;
 import com.example.cinema.entity.userDetail.User;
+import com.example.cinema.security.CurrentUser;
 import com.example.cinema.service.userservice.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -53,5 +56,20 @@ public class UserController {
         }
         return userService.getUserImage(fileName);
     }
+
+
+    @GetMapping("/editUser")
+    public String editUserPage(@AuthenticationPrincipal CurrentUser currentUser, ModelMap map) {
+        map.addAttribute("user", currentUser.getUser());
+        return "saveUser";
+    }
+
+    @PostMapping("/editUser/{id}")
+    public String editUserPage(@PathVariable("id") int id, @ModelAttribute UserRequestDto userRequestDto) {
+        userService.update(id, userRequestDto);
+        return "redirect:/";
+    }
+
+
 
 }

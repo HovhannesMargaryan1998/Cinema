@@ -1,5 +1,6 @@
 package com.example.cinema.service.userservice;
 
+import com.example.cinema.dto.UserRequestDto;
 import com.example.cinema.entity.userDetail.Role;
 import com.example.cinema.entity.userDetail.User;
 import com.example.cinema.repository.UserRepository;
@@ -66,5 +67,28 @@ public class UserService {
         }
         return fileName;
     }
+    public void update(int id, UserRequestDto userRequestDto) {
+        userRepository.findById(id).ifPresent(user -> {
+            if (userRequestDto.getName()!=null){
+                user.setName(userRequestDto.getName());
+            }
+            if (userRequestDto.getSurname()!=null){
+                user.setSurname(userRequestDto.getSurname());
+            }
+            if (userRequestDto.getEmail()!=null){
+                user.setEmail(userRequestDto.getEmail());
+            }
+            if (userRequestDto.getPassword()!=null){
+                user.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
+            }
+            user.setRole(Role.USER);
+            user.setEnable(true);
+            user.setId(id);
+            userRepository.save(user);
+        });
+
+
+    }
+
 
 }
