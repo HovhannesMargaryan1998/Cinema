@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table
+@Table(name = "actor")
 public class Actor {
 
     @Id
@@ -26,11 +26,12 @@ public class Actor {
     private String country;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "born")
-    private Date dateBorn;
+    private LocalDate dateBorn;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "died")
-    private Date dateDied;
+    private LocalDate dateDied;
     private int age;
+    @Column(name = "picture_url")
     private String pictureUrl;
     private String biography;
     @ManyToMany

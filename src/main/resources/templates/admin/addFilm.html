@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8" >
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- CSS -->
@@ -75,9 +75,13 @@
 			<a href="/admin/page" class="sidebar__nav-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10,13H3a1,1,0,0,0-1,1v7a1,1,0,0,0,1,1h7a1,1,0,0,0,1-1V14A1,1,0,0,0,10,13ZM9,20H4V15H9ZM21,2H14a1,1,0,0,0-1,1v7a1,1,0,0,0,1,1h7a1,1,0,0,0,1-1V3A1,1,0,0,0,21,2ZM20,9H15V4h5Zm1,4H14a1,1,0,0,0-1,1v7a1,1,0,0,0,1,1h7a1,1,0,0,0,1-1V14A1,1,0,0,0,21,13Zm-1,7H15V15h5ZM10,2H3A1,1,0,0,0,2,3v7a1,1,0,0,0,1,1h7a1,1,0,0,0,1-1V3A1,1,0,0,0,10,2ZM9,9H4V4H9Z"/></svg> Dashboard</a>
 		</li>
 
-<!--		<li class="sidebar__nav-item">-->
-<!--			<a href="catalogFilms.html" class="sidebar__nav-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,2a1,1,0,0,0-1,1V5H18V3a1,1,0,0,0-2,0V4H8V3A1,1,0,0,0,6,3V5H4V3A1,1,0,0,0,2,3V21a1,1,0,0,0,2,0V19H6v2a1,1,0,0,0,2,0V20h8v1a1,1,0,0,0,2,0V19h2v2a1,1,0,0,0,2,0V3A1,1,0,0,0,21,2ZM6,17H4V15H6Zm0-4H4V11H6ZM6,9H4V7H6Zm10,9H8V13h8Zm0-7H8V6h8Zm4,6H18V15h2Zm0-4H18V11h2Zm0-4H18V7h2Z"/></svg> Catalog</a>-->
-<!--		</li>-->
+		<li class="sidebar__nav-item">
+			<a href="/add/actor" class="sidebar__nav-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,2a1,1,0,0,0-1,1V5H18V3a1,1,0,0,0-2,0V4H8V3A1,1,0,0,0,6,3V5H4V3A1,1,0,0,0,2,3V21a1,1,0,0,0,2,0V19H6v2a1,1,0,0,0,2,0V20h8v1a1,1,0,0,0,2,0V19h2v2a1,1,0,0,0,2,0V3A1,1,0,0,0,21,2ZM6,17H4V15H6Zm0-4H4V11H6ZM6,9H4V7H6Zm10,9H8V13h8Zm0-7H8V6h8Zm4,6H18V15h2Zm0-4H18V11h2Zm0-4H18V7h2Z"/></svg>Add Actor</a>
+		</li>
+
+		<li class="sidebar__nav-item">
+			<a href="/add/director" class="sidebar__nav-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,2a1,1,0,0,0-1,1V5H18V3a1,1,0,0,0-2,0V4H8V3A1,1,0,0,0,6,3V5H4V3A1,1,0,0,0,2,3V21a1,1,0,0,0,2,0V19H6v2a1,1,0,0,0,2,0V20h8v1a1,1,0,0,0,2,0V19h2v2a1,1,0,0,0,2,0V3A1,1,0,0,0,21,2ZM6,17H4V15H6Zm0-4H4V11H6ZM6,9H4V7H6Zm10,9H8V13h8Zm0-7H8V6h8Zm4,6H18V15h2Zm0-4H18V11h2Zm0-4H18V7h2Z"/></svg>Add Director</a>
+		</li>
 
 <!--		<li class="sidebar__nav-item">-->
 <!--			<a href="allUsers.html" class="sidebar__nav-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,0,0,4.65,18.76h0a10,10,0,0,0,14.7,0h0A10,10,0,0,0,12,2Zm0,18a8,8,0,0,1-5.55-2.25,6,6,0,0,1,11.1,0A8,8,0,0,1,12,20ZM10,10a2,2,0,1,1,2,2A2,2,0,0,1,10,10Zm8.91,6A8,8,0,0,0,15,12.62a4,4,0,1,0-6,0A8,8,0,0,0,5.09,16,7.92,7.92,0,0,1,4,12a8,8,0,0,1,16,0A7.92,7.92,0,0,1,18.91,16Z"/></svg> Users</a>-->
@@ -96,7 +100,7 @@
 <!--			<a class="dropdown-toggle sidebar__nav-link" href="#" role="button" id="dropdownMenuMore" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,8.94a1.31,1.31,0,0,0-.06-.27l0-.09a1.07,1.07,0,0,0-.19-.28h0l-6-6h0a1.07,1.07,0,0,0-.28-.19.32.32,0,0,0-.09,0A.88.88,0,0,0,14.05,2H10A3,3,0,0,0,7,5V6H6A3,3,0,0,0,3,9V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V18h1a3,3,0,0,0,3-3V9S21,9,21,8.94ZM15,5.41,17.59,8H16a1,1,0,0,1-1-1ZM15,19a1,1,0,0,1-1,1H6a1,1,0,0,1-1-1V9A1,1,0,0,1,6,8H7v7a3,3,0,0,0,3,3h5Zm4-4a1,1,0,0,1-1,1H10a1,1,0,0,1-1-1V5a1,1,0,0,1,1-1h3V7a3,3,0,0,0,3,3h3Z"/></svg> Pages</a>-->
 
 <!--			<ul class="dropdown-menu sidebar__dropdown-menu scrollbar-dropdown" aria-labelledby="dropdownMenuMore">-->
-<!--				<li><a href="addItem.html">Add item</a></li>-->
+<!--				<li><a href="addFilm.html">Add item</a></li>-->
 <!--				<li><a href="editUser.html">Edit user</a></li>-->
 <!--				<li><a href="signin.html">Sign In</a></li>-->
 <!--				<li><a href="signup.html">Sign Up</a></li>-->
@@ -121,59 +125,64 @@
 			<!-- main title -->
 			<div class="col-12">
 				<div class="main__title">
-					<h2>Add new item</h2>
+					<h2>Add new film</h2>
 				</div>
 			</div>
 			<!-- end main title -->
 
 			<!-- form -->
 			<div class="col-12">
-				<form action="#" class="form">
+				<form action="/add/film" class="form" method="post" enctype="multipart/form-data">
 					<div class="row">
-						<div class="col-12 col-md-5 form__cover">
-							<div class="row">
-								<div class="col-12 col-sm-6 col-md-12">
-									<div class="form__img">
-										<label for="form__img-upload">Upload cover (270 x 400)</label>
-										<input id="form__img-upload" name="form__img-upload" type="file" accept=".png, .jpg, .jpeg">
-										<img id="form__img" src="#" alt=" ">
-									</div>
-								</div>
-							</div>
+<!--						<div class="col-12 col-md-5 form__cover">-->
+<!--							<div class="row">-->
+<!--								<div class="col-12 col-sm-6 col-md-12">-->
+<!--									<div class="form__img">-->
+<!--										<label for="form__img-upload">Upload cover (270 x 400)</label>-->
+<!--										<input id="form__img-upload" name="form__img-upload" type="file" accept=".png, .jpg, .jpeg">-->
+<!--										<img id="form__img" src="#" alt=" ">-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+
+						<div class="sign__group">
+							<input type="file" class="sign__input"  name="imageFilm" id="imageFilm" placeholder="please choose image" accept="image/*">
+							<span style="color: #CCCCCC" th:if="errorMessageFile != null" th:text="${errorMessageFile}"></span>
 						</div>
 
 						<div class="col-12 col-md-7 form__content">
 							<div class="row">
 								<div class="col-12">
-									<input type="text" class="form__input" placeholder="Title">
+									<input type="text" class="form__input" name="originalTitle" placeholder="Original title">
 								</div>
 
 								<div class="col-12">
-									<textarea id="text" name="text" class="form__textarea" placeholder="Description"></textarea>
+									<textarea id="text" class="form__textarea" name="description" placeholder="Description"></textarea>
 								</div>
 
 								<div class="col-12 col-sm-6 col-lg-3">
-									<input type="text" class="form__input" placeholder="Release year">
+									<input type="date" class="form__input" name="premiere" placeholder="Premiere year">
 								</div>
 
 								<div class="col-12 col-sm-6 col-lg-3">
-									<input type="text" class="form__input" placeholder="Running timed in minutes">
+									<input type="number" class="form__input" name="durationMinute" placeholder="Running timed in minutes">
 								</div>
 
-								<div class="col-12 col-sm-6 col-lg-3">
-									<select class="js-example-basic-single" id="quality">
-										<option value=""></option>
-										<option value="FullHD">FullHD</option>
-										<option value="HD">HD</option>
-									</select>
-								</div>
+<!--								<div class="col-12 col-sm-6 col-lg-3">-->
+<!--									<select class="js-example-basic-single" id="quality">-->
+<!--										<option value=""></option>-->
+<!--										<option value="FullHD">FullHD</option>-->
+<!--										<option value="HD">HD</option>-->
+<!--									</select>-->
+<!--								</div>-->
 
 								<div class="col-12 col-sm-6 col-lg-3">
-									<input type="text" class="form__input" placeholder="Age">
+									<input type="text" class="form__input" name="ageLimit" placeholder="Age limit">
 								</div>
 
 								<div class="col-12 col-lg-6">
-									<select class="js-example-basic-multiple" id="country" multiple="multiple">
+									<select class="js-example-basic-multiple" id="country" name="country" multiple="multiple">
 										<option value="Afghanistan">Afghanistan</option>
 										<option value="Åland Islands">Åland Islands</option>
 										<option value="Albania">Albania</option>
@@ -399,7 +408,7 @@
 								</div>
 
 								<div class="col-12 col-lg-6">
-									<select class="js-example-basic-multiple" id="genre" multiple="multiple">
+									<select class="js-example-basic-multiple" id="genre" name="genre" multiple="multiple">
 										<option value="Action">Action</option>
 										<option value="Animation">Animation</option>
 										<option value="Comedy">Comedy</option>
@@ -416,41 +425,59 @@
 									</select>
 								</div>
 
-								<div class="col-12">
-									<div class="form__gallery">
-										<label id="gallery1" for="form__gallery-upload">Upload photos</label>
-										<input data-name="#gallery1" id="form__gallery-upload" name="gallery" class="form__gallery-upload" type="file" accept=".png, .jpg, .jpeg" multiple>
+								<div class="col-12 col-lg-6" >
+								    <div th:each="actor:${actors}">
+										<input type="radio" th:value="${actor.id}" id="checkbox" style="border: 1px solid red;">
+										<label for="checkbox" th:text="${actor.name + ' ' + actor.surname}"></label>
 									</div>
 								</div>
+
+								<div class="col-12 col-lg-6">
+									<select class="js-example-basic-multiple"  name="director" multiple="multiple">
+										<option th:each="director: ${directors}" th:text="${director.name} + ' ' + ${director.surname}"
+												th:value="${director.id}"
+										></option>
+<!--										<option value="Action">Action</option>-->
+<!--										<option value="Animation">Animation</option>-->
+<!--										<option value="Comedy">Comedy</option>-->
+<!--										<option value="Crime">Crime</option>-->
+<!--										<option value="Drama">Drama</option>-->
+<!--										<option value="Fantasy">Fantasy</option>-->
+<!--										<option value="Historical">Historical</option>-->
+<!--										<option value="Horror">Horror</option>-->
+<!--										<option value="Romance">Romance</option>-->
+<!--										<option value="Science-fiction">Science-fiction</option>-->
+<!--										<option value="Thriller">Thriller</option>-->
+<!--										<option value="Western">Western</option>-->
+<!--										<option value="Otheer">Otheer</option>-->
+									</select>
+								</div>
+
+
 							</div>
 						</div>
 
-						<div class="col-12">
-							<ul class="form__radio">
-								<li>
-									<span>Item type:</span>
-								</li>
-								<li>
-									<input id="type1" type="radio" name="type" data-toggle="collapse" data-target=".multi-collapse" checked="">
-									<label for="type1">Movie</label>
-								</li>
-								<li>
-									<input id="type2" type="radio" name="type" data-toggle="collapse" data-target=".multi-collapse">
-									<label for="type2">TV Series</label>
-								</li>
-							</ul>
-						</div>
+<!--						<div class="col-12">-->
+<!--							<ul class="form__radio">-->
+<!--								<li>-->
+<!--									<span>Item type:</span>-->
+<!--								</li>-->
+<!--								<li>-->
+<!--									<input id="type1" type="radio" name="type" data-toggle="collapse" data-target=".multi-collapse" checked="">-->
+<!--									<label for="type1">Movie</label>-->
+<!--								</li>-->
+<!--								<li>-->
+<!--									<input id="type2" type="radio" name="type" data-toggle="collapse" data-target=".multi-collapse">-->
+<!--									<label for="type2">TV Series</label>-->
+<!--								</li>-->
+<!--							</ul>-->
+<!--						</div>-->
 						
 						<div class="col-12">
 							<div class="row">
 								<!-- movie -->
 								<div class="col-12">
-									<div class="collapse show multi-collapse" id="multiCollapseExample1">
-										<div class="form__video">
-											<label id="movie1" for="form__video-upload">Upload video</label>
-											<input data-name="#movie1" id="form__video-upload" name="movie" class="form__video-upload" type="file" accept="video/mp4,video/x-m4v,video/*">
-										</div>
-									</div>
+									<input type="text" class="form__input" name="videoUrl" placeholder="Video url">
 								</div>
 								<!-- end movie -->
 
