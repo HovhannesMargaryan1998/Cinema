@@ -66,18 +66,18 @@ a:focus {
   outline: none;
   text-decoration: none;
 }
-input,
-textarea,
-select {
-  padding: 0;
-  margin: 0;
-  border-radius: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  box-shadow: none;
-  transition: 0.4s ease;
-}
+/*input,*/
+/*textarea,*/
+/*select {*/
+/*  padding: 0;*/
+/*  margin: 0;*/
+/*  border-radius: 0;*/
+/*  -webkit-appearance: none;*/
+/*  -moz-appearance: none;*/
+/*  appearance: none;*/
+/*  box-shadow: none;*/
+/*  transition: 0.4s ease;*/
+/*}*/
 input:focus,
 textarea:focus,
 select:focus {
@@ -2178,14 +2178,21 @@ ul {
   background-color: #2b2b31;
   border: 1px solid transparent;
   height: 50px;
-  position: relative;
   color: #fff;
   font-size: 16px;
   width: 100%;
   border-radius: 4px;
-  padding: 0 20px;
+  padding: 20px;
   font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
+#img_file[type="file"]{
+   display:none;
+}
+
+
 .sign__input:hover,
 .sign__input:focus {
   border-color: #ff55a5;

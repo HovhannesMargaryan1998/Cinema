@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
 	<link rel="stylesheet" href="/css/select2.min.css">
 	<link rel="stylesheet" href="/css/admin.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/png" href="/icon/favicon-32x32.png" sizes="32x32">
@@ -146,10 +147,15 @@
 <!--							</div>-->
 <!--						</div>-->
 
-						<div class="sign__group">
-							<input type="file" class="sign__input"  name="imageFilm" id="imageFilm" placeholder="please choose image" accept="image/*">
-							<span style="color: #CCCCCC" th:if="errorMessageFile != null" th:text="${errorMessageFile}"></span>
-						</div>
+
+							<div class="sign__group">
+								<input type="file"  id="img_file" accept="image/*" name="imageFilm" >
+								<label for="img_file" class="sign__input" >
+									<i class="fa-solid fa-image">  upload a photo</i>
+								</label>
+								<span style="color: #CCCCCC" th:if="errorMessageFile != null" th:text="${errorMessageFile}"></span>
+							</div>
+
 
 						<div class="col-12 col-md-7 form__content">
 							<div class="row">
@@ -426,14 +432,15 @@
 								</div>
 
 								<div class="col-12 col-lg-6" >
-								    <div th:each="actor:${actors}">
-										<input type="radio" th:value="${actor.id}" id="checkbox" style="border: 1px solid red;">
-										<label for="checkbox" th:text="${actor.name + ' ' + actor.surname}"></label>
-									</div>
+									<select class="js-example-basic-multiple" id="actor"  name="actor" multiple="multiple">
+										<option th:each="actor: ${actors}" th:text="${actor.name} + ' ' + ${actor.surname}"
+												th:value="${actor.id}"
+										></option>
+									</select>
 								</div>
 
 								<div class="col-12 col-lg-6">
-									<select class="js-example-basic-multiple"  name="director" multiple="multiple">
+									<select class="js-example-basic-multiple" id="filmmaker" name="" multiple="multiple">
 										<option th:each="director: ${directors}" th:text="${director.name} + ' ' + ${director.surname}"
 												th:value="${director.id}"
 										></option>

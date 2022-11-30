@@ -67,11 +67,20 @@ $(document).ready(function () {
 	});
 
 	$('#country').select2({
+
 		placeholder: "Choose country / countries"
+	});
+	$('#filmmaker').select2({
+		maximumSelectionLength:1,
+		placeholder: "Choose filmmaker"
 	});
 
 	$('#genre').select2({
 		placeholder: "Choose genre / genres"
+	});
+
+	$('#actor').select2({
+		placeholder: "Choose actor"
 	});
 
 	$('#subscription, #rights').select2();
