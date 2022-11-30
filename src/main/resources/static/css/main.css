@@ -3130,6 +3130,9 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   border-radius: 4px;
   padding: 0 20px;
   font-family: 'Open Sans', sans-serif;
+  display:flex;
+  align-items: center;
+  cursor:pointer;
 }
 .sign__input:hover,
 .sign__input:focus {
