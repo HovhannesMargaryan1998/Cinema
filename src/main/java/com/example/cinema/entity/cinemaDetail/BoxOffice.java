@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -23,7 +23,7 @@ public class BoxOffice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @DateTimeFormat(pattern = ("HH-mm-ss"))
-    private Date time;
+    private LocalDate time;
     private int duration_min;
     private String ageLimit;
     private double price;

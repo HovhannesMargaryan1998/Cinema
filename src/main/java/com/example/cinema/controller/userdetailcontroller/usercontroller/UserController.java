@@ -4,6 +4,7 @@ import com.example.cinema.dto.UserRequestDto;
 import com.example.cinema.entity.userDetail.User;
 import com.example.cinema.security.CurrentUser;
 import com.example.cinema.service.userservice.UserService;
+import com.example.cinema.util.CreatePictureUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RequiredArgsConstructor
 public class UserController {
 
+    private final CreatePictureUtil createPictureUtil;
     private final UserService userService;
 
     @GetMapping("/login")
@@ -40,21 +42,20 @@ public class UserController {
     @PostMapping("register/user")
     public String registerUser(@ModelAttribute User user, @RequestParam("image") MultipartFile multipartFile,
                                ModelMap modelMap) {
-        if (userService.isPictureNotAllowedType(multipartFile)){
+        if (createPictureUtil.isPictureNotAllowedType(multipartFile)){
             modelMap.addAttribute("errorMessageFile", "Please choose only image");
             return "main/register";
         }
         userService.registerUser(user, multipartFile);
         return "redirect:/user/login";
-
     }
 
     @GetMapping("/getImage")
     public @ResponseBody byte[] getImage(@RequestParam("picName") String fileName) {
-        if (userService.getUserImage(fileName) == null){
+        if (createPictureUtil.getImage(fileName) == null){
            return null;
         }
-        return userService.getUserImage(fileName);
+        return createPictureUtil.getImage(fileName);
     }
 
 

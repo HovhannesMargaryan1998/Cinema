@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -23,9 +23,10 @@ public class Film {
     private int id;
     private String originalTitle;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date premiere;
+    private LocalDate premiere;
     @Column(name = "duration_minute")
     private int durationMinute;
+    private String description;
     private String country;
     private Double rating;
     private String videoUrl;
@@ -38,6 +39,7 @@ public class Film {
     private List<Actor> actors;
     @ManyToMany
     private List<Genre> genres;
+    private String ageLimit;
 
 
 }
