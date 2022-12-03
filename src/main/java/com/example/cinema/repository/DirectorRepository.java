@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface DirectorRepository extends JpaRepository<Director, Integer> {
 
-    List<Director> findAll();
 
 }

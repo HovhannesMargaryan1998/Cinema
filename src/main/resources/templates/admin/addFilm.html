@@ -414,25 +414,27 @@
 								</div>
 
 								<div class="col-12 col-lg-6">
-									<select class="js-example-basic-multiple" id="genre" name="genre" multiple="multiple">
-										<option value="Action">Action</option>
-										<option value="Animation">Animation</option>
-										<option value="Comedy">Comedy</option>
-										<option value="Crime">Crime</option>
-										<option value="Drama">Drama</option>
-										<option value="Fantasy">Fantasy</option>
-										<option value="Historical">Historical</option>
-										<option value="Horror">Horror</option>
-										<option value="Romance">Romance</option>
-										<option value="Science-fiction">Science-fiction</option>
-										<option value="Thriller">Thriller</option>
-										<option value="Western">Western</option>
-										<option value="Otheer">Otheer</option>
+									<select class="js-example-basic-multiple" id="genresId" name="genresId" multiple="multiple">
+										<option th:each="genre: ${genres}" th:text="${genre.name}"
+												th:value="${genre.id}"
+										></option>
+<!--										<option value="ACTION">Action</option>-->
+<!--										<option value="ANIMATION">Animation</option>-->
+<!--										<option value="COMEDY">Comedy</option>-->
+<!--										<option value="CRIME">Crime</option>-->
+<!--										<option value="DRAMA">Drama</option>-->
+<!--										<option value="FANTASY">Fantasy</option>-->
+<!--										<option value="HISTORICAL">Historical</option>-->
+<!--										<option value="HORROR">Horror</option>-->
+<!--										<option value="ROMANCE">Romance</option>-->
+<!--										<option value="THRILLER">Thriller</option>-->
+<!--										<option value="WESTERN">Western</option>-->
+<!--										<option value="OTHER">Other</option>-->
 									</select>
 								</div>
 
 								<div class="col-12 col-lg-6" >
-									<select class="js-example-basic-multiple" id="actor"  name="actor" multiple="multiple">
+									<select class="js-example-basic-multiple" id="actorsId"  name="actorsId" multiple="multiple">
 										<option th:each="actor: ${actors}" th:text="${actor.name} + ' ' + ${actor.surname}"
 												th:value="${actor.id}"
 										></option>
@@ -440,7 +442,7 @@
 								</div>
 
 								<div class="col-12 col-lg-6">
-									<select class="js-example-basic-multiple" id="filmmaker" name="" multiple="multiple">
+									<select class="js-example-basic-multiple" id="directorId" name="directorId" multiple="multiple">
 										<option th:each="director: ${directors}" th:text="${director.name} + ' ' + ${director.surname}"
 												th:value="${director.id}"
 										></option>
@@ -579,7 +581,7 @@
 								<!-- end tv series -->
 
 								<div class="col-12">
-									<button type="button" class="form__btn">publish</button>
+									<button type="submit" class="form__btn">publish</button>
 								</div>
 							</div>
 						</div>

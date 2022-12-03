@@ -70,16 +70,16 @@ $(document).ready(function () {
 
 		placeholder: "Choose country / countries"
 	});
-	$('#filmmaker').select2({
+	$('#directorId').select2({
 		maximumSelectionLength:1,
 		placeholder: "Choose filmmaker"
 	});
 
-	$('#genre').select2({
+	$('#genresId').select2({
 		placeholder: "Choose genre / genres"
 	});
 
-	$('#actor').select2({
+	$('#actorsId').select2({
 		placeholder: "Choose actor"
 	});
 

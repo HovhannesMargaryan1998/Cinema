@@ -1,4 +1,4 @@
-package com.example.cinema.service.actorservice;
+package com.example.cinema.service;
 
 import com.example.cinema.entity.filmDetail.Actor;
 import com.example.cinema.repository.ActorRepository;
@@ -26,6 +26,10 @@ public class ActorService {
         actorRepository.save(actor);
     }
 
+    public Actor getById(int id){
+        return actorRepository.findById(id).orElse(null);
+    }
+
     public List<Actor> findAllActors(){
         return actorRepository.findAll();
     }
@@ -33,4 +37,5 @@ public class ActorService {
     public int calculateAge(LocalDate localDate) {
         return LocalDate.now().getYear() - localDate.getYear();
     }
+
 }

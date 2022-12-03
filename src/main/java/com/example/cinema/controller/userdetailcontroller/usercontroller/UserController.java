@@ -3,7 +3,7 @@ package com.example.cinema.controller.userdetailcontroller.usercontroller;
 import com.example.cinema.dto.UserRequestDto;
 import com.example.cinema.entity.userDetail.User;
 import com.example.cinema.security.CurrentUser;
-import com.example.cinema.service.userservice.UserService;
+import com.example.cinema.service.UserService;
 import com.example.cinema.util.CreatePictureUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

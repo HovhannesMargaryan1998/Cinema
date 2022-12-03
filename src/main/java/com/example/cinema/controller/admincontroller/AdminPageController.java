@@ -1,8 +1,8 @@
 package com.example.cinema.controller.admincontroller;
 
-import com.example.cinema.service.actorservice.ActorService;
-import com.example.cinema.service.director.DirectorService;
-import com.example.cinema.service.filmservice.FilmService;
+import com.example.cinema.service.ActorService;
+import com.example.cinema.service.DirectorService;
+import com.example.cinema.service.GenreService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,14 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequiredArgsConstructor
 public class AdminPageController {
 
-    private final FilmService filmService;
-
+    private final GenreService genreService;
     private final ActorService actorService;
 
     private final DirectorService directorService;
 
     @GetMapping("/admin/page")
-    public String adminPage(){
+    public String adminPage() {
         return "redirect:/user/profile";
     }
 
@@ -27,6 +26,7 @@ public class AdminPageController {
     public String addFilmsPage(ModelMap modelMap) {
         modelMap.addAttribute("directors", directorService.findAllDirectors());
         modelMap.addAttribute("actors", actorService.findAllActors());
+        modelMap.addAttribute("genres", genreService.findAllGenres());
         return "admin/addFilm";
     }
 
@@ -49,8 +49,6 @@ public class AdminPageController {
     public String editUserPage() {
         return "admin/editUser";
     }
-
-
 
 
 }

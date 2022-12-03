@@ -1,4 +1,4 @@
-package com.example.cinema.service.userservice;
+package com.example.cinema.service;
 
 import com.example.cinema.dto.UserRequestDto;
 import com.example.cinema.entity.userDetail.Role;

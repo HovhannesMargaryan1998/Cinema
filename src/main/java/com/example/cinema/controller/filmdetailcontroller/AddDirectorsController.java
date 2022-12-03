@@ -1,8 +1,7 @@
 package com.example.cinema.controller.filmdetailcontroller;
 
-import com.example.cinema.entity.filmDetail.Actor;
 import com.example.cinema.entity.filmDetail.Director;
-import com.example.cinema.service.director.DirectorService;
+import com.example.cinema.service.DirectorService;
 import com.example.cinema.util.CreatePictureUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
