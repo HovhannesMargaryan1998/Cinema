@@ -46,6 +46,6 @@ public class AddFilmsController {
             return "main/register";
         }
         filmService.addFilm(filmRequestDTO, multipartFile);
-        return "admin/addActor";
+        return "admin/addFilm";
     }
 }
