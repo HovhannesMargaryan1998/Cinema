@@ -1,4 +1,4 @@
-package com.example.cinema.dto;
+package com.example.cinema.dto.filmrequestdetaildto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,7 +20,6 @@ public class FilmRequestDTO {
     private int durationMinute;
     private String description;
     private String country;
-    private Double rating;
     private String videoUrl;
     private String pictureUrl;
     private int directorId;

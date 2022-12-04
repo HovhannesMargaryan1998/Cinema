@@ -1,28 +1,32 @@
 package com.example.cinema.service;
 
-import com.example.cinema.entity.filmDetail.Director;
-import com.example.cinema.entity.filmDetail.Film;
+import com.example.cinema.dto.filmrequestdetaildto.DirectorRequestDTO;
+import com.example.cinema.dto.filmresponsedetaildto.DirectorResponseDTO;
+import com.example.cinema.entity.filmdetail.Director;
+import com.example.cinema.mapper.filmrequestdetaillmapper.DirectorRequestMapper;
+import com.example.cinema.mapper.filmresponsedetailmapper.DirectorResponseMapper;
 import com.example.cinema.repository.DirectorRepository;
-import com.example.cinema.service.ActorService;
 import com.example.cinema.util.CreatePictureUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class DirectorService {
 
+    private final DirectorResponseMapper directorResponseMapper;
+
     private final DirectorRepository directorRepository;
-
     private final ActorService actorService;
-
     private final CreatePictureUtil createPictureUtil;
 
-    public void addDirector(Director director, MultipartFile multipartFile) {
+    private final DirectorRequestMapper directorRequestMapper;
+
+    public void addDirector(DirectorRequestDTO directorRequestDTO, MultipartFile multipartFile) {
+        Director director = directorRequestMapper.map(directorRequestDTO);
         if (!multipartFile.isEmpty() && multipartFile.getSize() > 0) {
             director.setPictureUrl(createPictureUtil.creatPicture(multipartFile));
         }
@@ -35,8 +39,8 @@ public class DirectorService {
 
     }
 
-    public List<Director> findAllDirectors() {
-        return directorRepository.findAll();
+    public List<DirectorResponseDTO> findAllDirectors() {
+        return directorResponseMapper.map(directorRepository.findAll()) ;
     }
 
 }

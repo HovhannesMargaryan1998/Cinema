@@ -1,7 +1,7 @@
-package com.example.cinema.entity.cinemaDetail;
+package com.example.cinema.entity.cinemadetail;
 
-import com.example.cinema.entity.filmDetail.Film;
-import com.example.cinema.entity.userDetail.User;
+import com.example.cinema.entity.filmdetail.Film;
+import com.example.cinema.entity.userdetail.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

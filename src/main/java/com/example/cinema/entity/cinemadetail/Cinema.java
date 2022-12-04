@@ -1,4 +1,4 @@
-package com.example.cinema.entity.cinemaDetail;
+package com.example.cinema.entity.cinemadetail;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

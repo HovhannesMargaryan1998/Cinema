@@ -1,6 +1,6 @@
 package com.example.cinema.controller.userdetailcontroller.usercontroller;
 
-import com.example.cinema.entity.userDetail.User;
+import com.example.cinema.entity.userdetail.User;
 import com.example.cinema.security.CurrentUser;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.ControllerAdvice;

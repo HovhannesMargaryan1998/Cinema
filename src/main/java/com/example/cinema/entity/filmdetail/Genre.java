@@ -1,6 +1,5 @@
-package com.example.cinema.entity.filmDetail;
+package com.example.cinema.entity.filmdetail;
 
-import com.example.cinema.entity.userDetail.User;
 import lombok.*;
 import org.hibernate.Hibernate;
 
@@ -14,24 +13,21 @@ import java.util.Objects;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "comment")
-public class Comment {
+@Table(name = "genre")
+public class Genre {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne
-    private User user;
-    @ManyToOne
-    private Film film;
-    private String text;
+    private String name;
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Comment comment = (Comment) o;
-        return Objects.equals(id, comment.id);
+        Genre genre = (Genre) o;
+        return Objects.equals(id, genre.id);
     }
 
     @Override

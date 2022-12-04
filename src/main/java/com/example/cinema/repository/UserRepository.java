@@ -1,6 +1,6 @@
 package com.example.cinema.repository;
 
-import com.example.cinema.entity.userDetail.User;
+import com.example.cinema.entity.userdetail.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

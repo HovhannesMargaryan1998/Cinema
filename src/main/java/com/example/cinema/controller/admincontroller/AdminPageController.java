@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 @RequiredArgsConstructor
 public class AdminPageController {
-
     private final GenreService genreService;
     private final ActorService actorService;
-
     private final DirectorService directorService;
 
     @GetMapping("/admin/page")

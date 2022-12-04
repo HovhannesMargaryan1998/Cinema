@@ -1,4 +1,4 @@
-package com.example.cinema.entity.filmDetail;
+package com.example.cinema.entity.filmdetail;
 
 public enum Status {
 

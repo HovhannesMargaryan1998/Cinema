@@ -1,4 +1,4 @@
-package com.example.cinema.entity.filmDetail;
+package com.example.cinema.entity.filmdetail;
 
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -6,7 +6,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -16,8 +15,8 @@ import java.util.Objects;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "director")
-public class Director {
+@Table(name = "actor")
+public class Actor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,16 +34,13 @@ public class Director {
     @Column(name = "picture_url")
     private String pictureUrl;
     private String biography;
-    @OneToMany(mappedBy = "director")
-    @ToString.Exclude
-    List<Film> films;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Director director = (Director) o;
-        return  Objects.equals(id, director.id);
+        Actor actor = (Actor) o;
+        return Objects.equals(id, actor.id);
     }
 
     @Override
