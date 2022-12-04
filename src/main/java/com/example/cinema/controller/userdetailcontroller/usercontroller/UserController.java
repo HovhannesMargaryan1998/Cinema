@@ -1,7 +1,7 @@
 package com.example.cinema.controller.userdetailcontroller.usercontroller;
 
-import com.example.cinema.dto.UserRequestDto;
-import com.example.cinema.entity.userDetail.User;
+import com.example.cinema.dto.userrequestdetaildto.UserRequestDTO;
+import com.example.cinema.mapper.userresponsedetailmapper.UserResponseMapper;
 import com.example.cinema.security.CurrentUser;
 import com.example.cinema.service.UserService;
 import com.example.cinema.util.CreatePictureUtil;
@@ -18,6 +18,8 @@ public class UserController {
 
     private final CreatePictureUtil createPictureUtil;
     private final UserService userService;
+
+    private final UserResponseMapper userResponseMapper;
 
     @GetMapping("/login")
     public String login() {
@@ -40,13 +42,14 @@ public class UserController {
     }
 
     @PostMapping("register/user")
-    public String registerUser(@ModelAttribute User user, @RequestParam("image") MultipartFile multipartFile,
+    public String registerUser(@ModelAttribute UserRequestDTO userRegisterRequestDTO,
+                               @RequestParam("image") MultipartFile multipartFile,
                                ModelMap modelMap) {
         if (createPictureUtil.isPictureNotAllowedType(multipartFile)){
             modelMap.addAttribute("errorMessageFile", "Please choose only image");
             return "main/register";
         }
-        userService.registerUser(user, multipartFile);
+        userService.registerUser(userRegisterRequestDTO, multipartFile);
         return "redirect:/user/login";
     }
 
@@ -61,12 +64,12 @@ public class UserController {
 
     @GetMapping("/editUser")
     public String editUserPage(@AuthenticationPrincipal CurrentUser currentUser, ModelMap map) {
-        map.addAttribute("user", currentUser.getUser());
+        map.addAttribute("user", userResponseMapper.map(currentUser.getUser()));
         return "saveUser";
     }
 
     @PostMapping("/editUser/{id}")
-    public String editUserPage(@PathVariable("id") int id, @ModelAttribute UserRequestDto userRequestDto) {
+    public String editUserPage(@PathVariable("id") int id, @ModelAttribute UserRequestDTO userRequestDto) {
         userService.update(id, userRequestDto);
         return "redirect:/";
     }

@@ -1,6 +1,6 @@
 package com.example.cinema.Unit.service.userservice;
 
-import com.example.cinema.entity.userDetail.User;
+import com.example.cinema.entity.userdetail.User;
 import com.example.cinema.repository.UserRepository;
 import com.example.cinema.service.UserService;
 import org.junit.jupiter.api.extension.ExtendWith;

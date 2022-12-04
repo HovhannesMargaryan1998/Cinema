@@ -1,7 +1,7 @@
-package com.example.cinema.entity.userDetail;
+package com.example.cinema.entity.userdetail;
 
 
-import com.example.cinema.entity.filmDetail.Film;
+import com.example.cinema.entity.filmdetail.Film;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,12 +26,13 @@ public class User {
     private String surname;
     private String email;
     @OneToMany
-    private List<Film> film;
+    private List<Film> films;
     private String password;
     @Enumerated(value = EnumType.STRING)
     private Role role;
     private boolean isEnable;
     private String token;
     private String pictureUrl;
+
 
 }

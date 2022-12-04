@@ -1,4 +1,4 @@
-package com.example.cinema.entity.filmDetail;
+package com.example.cinema.entity.filmdetail;
 
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -16,42 +16,35 @@ import java.util.Objects;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "film")
-public class Film {
+@Table(name = "director")
+public class Director {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String originalTitle;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate premiere;
-    @Column(name = "duration_minute")
-    private int durationMinute;
-    private String description;
+    private String name;
+    private String surname;
     private String country;
-    private Double rating;
-    private String videoUrl;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "born")
+    private LocalDate dateBorn;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "died")
+    private LocalDate dateDied;
+    private int age;
+    @Column(name = "picture_url")
     private String pictureUrl;
-    @Enumerated(value = EnumType.STRING)
-    private Status status;
-    @ManyToOne
-    private Director director;
-    @ManyToMany
+    private String biography;
+    @OneToMany(mappedBy = "director")
     @ToString.Exclude
-    @Transient
-    private List<Actor> actors;
-    @ManyToMany
-    @ToString.Exclude
-    @Transient
-    private List<Genre> genres;
-    private String ageLimit;
+    List<Film> films;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Film film = (Film) o;
-        return  Objects.equals(id, film.id);
+        Director director = (Director) o;
+        return  Objects.equals(id, director.id);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.cinema.controller.filmdetailcontroller;
 
-import com.example.cinema.entity.filmDetail.Director;
+import com.example.cinema.dto.filmrequestdetaildto.DirectorRequestDTO;
+import com.example.cinema.entity.filmdetail.Director;
 import com.example.cinema.service.DirectorService;
 import com.example.cinema.util.CreatePictureUtil;
 import lombok.RequiredArgsConstructor;
@@ -20,13 +21,13 @@ public class AddDirectorsController {
     private final DirectorService directorService;
 
     @PostMapping("/add/director")
-    public String addActor(@ModelAttribute Director director, @RequestParam("imageDirector") MultipartFile multipartFile,
+    public String addActor(@ModelAttribute DirectorRequestDTO directorRequestDTO, @RequestParam("imageDirector") MultipartFile multipartFile,
                            ModelMap modelMap) {
         if (createPictureUtil.isPictureNotAllowedType(multipartFile)){
             modelMap.addAttribute("errorMessageFile", "Please choose only image");
             return "main/register";
         }
-        directorService.addDirector(director, multipartFile);
+        directorService.addDirector(directorRequestDTO, multipartFile);
         return "admin/addActor";
     }
 

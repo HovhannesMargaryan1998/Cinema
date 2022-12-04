@@ -1,9 +1,6 @@
 package com.example.cinema.controller.admincontroller;
 
-import com.example.cinema.dto.FilmRequestDTO;
-import com.example.cinema.entity.filmDetail.Film;
-import com.example.cinema.service.ActorService;
-import com.example.cinema.service.DirectorService;
+import com.example.cinema.dto.filmrequestdetaildto.FilmRequestDTO;
 import com.example.cinema.service.FilmService;
 import com.example.cinema.util.CreatePictureUtil;
 import lombok.RequiredArgsConstructor;
@@ -23,10 +20,6 @@ public class AddFilmsController {
 
     private final CreatePictureUtil createPictureUtil;
 
-    private final ActorService actorService;
-
-    private final DirectorService directorService;
-
     @GetMapping("/add/actor")
     public String addActorPage() {
         return "/admin/addActor";
@@ -39,13 +32,13 @@ public class AddFilmsController {
 
 
     @PostMapping("/add/film")
-    public String addActor(@ModelAttribute FilmRequestDTO filmRequestDTO, @RequestParam("imageFilm") MultipartFile multipartFile,
+    public String addFilm(@ModelAttribute FilmRequestDTO filmRequestDTO, @RequestParam("imageFilm") MultipartFile multipartFile,
                            ModelMap modelMap) {
         if (createPictureUtil.isPictureNotAllowedType(multipartFile)){
             modelMap.addAttribute("errorMessageFile", "Please choose only image");
             return "main/register";
         }
         filmService.addFilm(filmRequestDTO, multipartFile);
-        return "admin/addFilm";
+        return "redirect:/add/film";
     }
 }

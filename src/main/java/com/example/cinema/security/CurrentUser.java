@@ -1,6 +1,6 @@
 package com.example.cinema.security;
 
-import com.example.cinema.entity.userDetail.User;
+import com.example.cinema.entity.userdetail.User;
 import org.springframework.security.core.authority.AuthorityUtils;
 
 public class CurrentUser extends org.springframework.security.core.userdetails.User {

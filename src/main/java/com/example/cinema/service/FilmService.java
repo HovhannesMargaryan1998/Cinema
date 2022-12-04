@@ -1,11 +1,11 @@
 package com.example.cinema.service;
 
-import com.example.cinema.dto.FilmRequestDTO;
-import com.example.cinema.entity.filmDetail.Actor;
-import com.example.cinema.entity.filmDetail.Film;
-import com.example.cinema.entity.filmDetail.Genre;
-import com.example.cinema.entity.filmDetail.Status;
-import com.example.cinema.mapper.FilmMapper;
+import com.example.cinema.dto.filmrequestdetaildto.FilmRequestDTO;
+import com.example.cinema.entity.filmdetail.Actor;
+import com.example.cinema.entity.filmdetail.Film;
+import com.example.cinema.entity.filmdetail.Genre;
+import com.example.cinema.entity.filmdetail.Status;
+import com.example.cinema.mapper.filmrequestdetaillmapper.FilmRequestMapper;
 import com.example.cinema.repository.FilmRepository;
 import com.example.cinema.util.CreatePictureUtil;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +26,7 @@ public class FilmService {
     private final DirectorService directorService;
 
     private final CreatePictureUtil createPictureUtil;
-    private final FilmMapper filmMapper;
+    private final FilmRequestMapper filmMapper;
     private final GenreService genreService;
 
     public void addFilm(FilmRequestDTO filmRequestDTO, MultipartFile multipartFile) {

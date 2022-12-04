@@ -1,6 +1,6 @@
 package com.example.cinema.security;
 
-import com.example.cinema.entity.userDetail.User;
+import com.example.cinema.entity.userdetail.User;
 import com.example.cinema.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
