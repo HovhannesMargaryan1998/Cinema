@@ -41,7 +41,7 @@ public class UserController {
         return "main/register";
     }
 
-    @PostMapping("register/user")
+    @PostMapping("/register/user")
     public String registerUser(@ModelAttribute UserRequestDTO userRegisterRequestDTO,
                                @RequestParam("image") MultipartFile multipartFile,
                                ModelMap modelMap) {

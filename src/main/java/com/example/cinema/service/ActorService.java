@@ -44,5 +44,4 @@ public class ActorService {
     public int calculateAge(LocalDate localDate) {
         return LocalDate.now().getYear() - localDate.getYear();
     }
-
 }

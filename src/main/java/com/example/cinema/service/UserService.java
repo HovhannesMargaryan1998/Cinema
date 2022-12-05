@@ -20,7 +20,6 @@ public class UserService {
     private final CreatePictureUtil creatPicture;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-
     private final UserRequestMapper userRequestMapper;
 
     public void registerUser(UserRequestDTO userRegisterRequestDTO, MultipartFile multipartFile) {
@@ -55,8 +54,5 @@ public class UserService {
             userRepository.save(user);
         });
 
-
     }
-
-
 }
