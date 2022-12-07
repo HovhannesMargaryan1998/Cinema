@@ -3,10 +3,13 @@ package com.example.cinema.controller.admincontroller;
 import com.example.cinema.service.ActorService;
 import com.example.cinema.service.DirectorService;
 import com.example.cinema.service.GenreService;
+import com.example.cinema.util.CheckImportedData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequiredArgsConstructor
@@ -26,6 +29,7 @@ public class AdminPageController {
         modelMap.addAttribute("actors", actorService.findAllActors());
         modelMap.addAttribute("genres", genreService.findAllGenres());
         return "admin/addFilm";
+
     }
 
     @GetMapping("/catalog/films")

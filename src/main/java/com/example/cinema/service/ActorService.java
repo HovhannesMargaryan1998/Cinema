@@ -16,7 +16,8 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ActorService {
+public class
+ActorService {
 
     private final ActorResponseMapper actorResponseMapper;
     private final ActorRequestMapper actorRequestMapper;
@@ -32,6 +33,8 @@ public class ActorService {
         actor.setAge(calculateAge(actor.getDateBorn()));
         actorRepository.save(actor);
     }
+
+
 
     public Actor getById(int id) {
         return actorRepository.findById(id).orElse(null);

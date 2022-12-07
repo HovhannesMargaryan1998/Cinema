@@ -156,10 +156,13 @@
 							<div class="row">
 								<div class="col-12">
 									<input type="text" class="form__input" name="name" placeholder="Name">
+									<span style="color: #CCCCCC" th:if="errorMessagename != null" th:text="${errorMessagename}"></span>
 								</div>
 
 								<div class="col-12">
 									<input type="text" class="form__input" name="surname" placeholder="Surname">
+									<span style="color: #CCCCCC" th:if="errorMessagesurname != null" th:text="${errorMessagesurname}"></span>
+
 								</div>
 
 								<div class="col-12">
@@ -168,6 +171,7 @@
 
 								<div class="col-12 col-sm-6 col-lg-3">
 									<input type="date" class="form__input" name="dateBorn" placeholder="Born">
+									<span style="color: #CCCCCC" th:if="errorMessagedate != null" th:text="${errorMessagedate}"></span>
 								</div>
 
 								<div class="col-12 col-sm-6 col-lg-3">

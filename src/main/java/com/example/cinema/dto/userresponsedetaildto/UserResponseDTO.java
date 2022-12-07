@@ -15,8 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class UserResponseDTO {
-
-
     private int id;
     private String name;
     private String surname;
@@ -24,8 +22,7 @@ public class UserResponseDTO {
     private List<Film> films;
     @Enumerated(value = EnumType.STRING)
     private Role role;
-    private boolean isEnable;
-    private String token;
+
     private String pictureUrl;
 
 
