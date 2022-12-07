@@ -9,6 +9,7 @@ import com.example.cinema.mapper.filmrequestdetaillmapper.FilmRequestMapper;
 import com.example.cinema.repository.FilmRepository;
 import com.example.cinema.util.CreatePictureUtil;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,6 +18,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class FilmService {
 
     private final FilmRepository filmRepository;
@@ -40,6 +42,7 @@ public class FilmService {
         }
         film.getDirector().getFilms().add(film);
         filmRepository.save(film);
+        log.info("film added {}", film.getOriginalTitle());
     }
 
     private List<Genre> allGenresById(List<Integer> genresIds) {
@@ -50,9 +53,9 @@ public class FilmService {
         return genres;
     }
 
-    private List<Actor> allActorsById(List<Integer> genresIds) {
+    private List<Actor> allActorsById(List<Integer> actorsIds) {
         var actors = new ArrayList<Actor>();
-        genresIds.stream().filter(actorId -> actorId != 0).forEach(g -> {
+        actorsIds.stream().filter(actorId -> actorId != 0).forEach(g -> {
             actors.add(actorService.getById(g));
         });
         return actors;

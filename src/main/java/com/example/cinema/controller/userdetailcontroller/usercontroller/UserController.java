@@ -1,25 +1,31 @@
 package com.example.cinema.controller.userdetailcontroller.usercontroller;
 
 import com.example.cinema.dto.userrequestdetaildto.UserRequestDTO;
-import com.example.cinema.mapper.userresponsedetailmapper.UserResponseMapper;
+import com.example.cinema.mapper.userrequestdetailmapper.UserMapper;
 import com.example.cinema.security.CurrentUser;
 import com.example.cinema.service.UserService;
+import com.example.cinema.util.CheckImportedData;
 import com.example.cinema.util.CreatePictureUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.validation.Valid;
 
 @Controller
 @RequiredArgsConstructor
 public class UserController {
 
     private final CreatePictureUtil createPictureUtil;
+
+    private final CheckImportedData checkImportedData;
     private final UserService userService;
 
-    private final UserResponseMapper userResponseMapper;
+    private final UserMapper userResponseMapper;
 
     @GetMapping("/login")
     public String login() {
@@ -42,14 +48,13 @@ public class UserController {
     }
 
     @PostMapping("/register/user")
-    public String registerUser(@ModelAttribute UserRequestDTO userRegisterRequestDTO,
-                               @RequestParam("image") MultipartFile multipartFile,
-                               ModelMap modelMap) {
-        if (createPictureUtil.isPictureNotAllowedType(multipartFile)){
-            modelMap.addAttribute("errorMessageFile", "Please choose only image");
+    public String registerUser(@ModelAttribute @Valid UserRequestDTO userRequestDTO, BindingResult bindingResult,
+                               @RequestParam("imageUser") MultipartFile multipartFile, ModelMap modelMap) {
+        if (checkImportedData.checkUserData(bindingResult, userRequestDTO, multipartFile, modelMap).isPresent()){
+            checkImportedData.checkUserData(bindingResult, userRequestDTO, multipartFile, modelMap).get();
             return "main/register";
         }
-        userService.registerUser(userRegisterRequestDTO, multipartFile);
+        userService.registerUser(userRequestDTO, multipartFile);
         return "redirect:/user/login";
     }
 
@@ -60,7 +65,6 @@ public class UserController {
         }
         return createPictureUtil.getImage(fileName);
     }
-
 
     @GetMapping("/editUser")
     public String editUserPage(@AuthenticationPrincipal CurrentUser currentUser, ModelMap map) {
@@ -73,7 +77,5 @@ public class UserController {
         userService.update(id, userRequestDto);
         return "redirect:/";
     }
-
-
 
 }

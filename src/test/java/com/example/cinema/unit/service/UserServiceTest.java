@@ -3,7 +3,7 @@ package com.example.cinema.unit.service;
 import com.example.cinema.dto.userrequestdetaildto.UserRequestDTO;
 import com.example.cinema.entity.userdetail.Role;
 import com.example.cinema.entity.userdetail.User;
-import com.example.cinema.mapper.userrequestdetailmapper.UserRequestMapper;
+import com.example.cinema.mapper.userrequestdetailmapper.UserMapper;
 import com.example.cinema.repository.UserRepository;
 import com.example.cinema.service.UserService;
 import com.example.cinema.util.CreatePictureUtil;
@@ -15,8 +15,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.time.LocalDate;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -30,7 +28,7 @@ class UserServiceTest {
     private PasswordEncoder passwordEncoder;
 
     @Mock
-    private UserRequestMapper userRequestMapper;
+    private UserMapper userRequestMapper;
 
     @Mock
     private CreatePictureUtil createPictureUtil;
@@ -44,7 +42,6 @@ class UserServiceTest {
             .surname("some-surname")
             .email("some@mail.com")
             .password("some-password")
-            .isEnable(true)
             .pictureUrl("some-picture-name")
             .build();
 

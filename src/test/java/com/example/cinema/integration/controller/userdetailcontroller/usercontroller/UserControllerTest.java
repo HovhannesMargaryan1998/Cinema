@@ -1,6 +1,6 @@
 package com.example.cinema.integration.controller.userdetailcontroller.usercontroller;
 
-import com.example.cinema.mapper.userresponsedetailmapper.UserResponseMapper;
+import com.example.cinema.mapper.userrequestdetailmapper.UserMapper;
 import com.example.cinema.service.UserService;
 import com.example.cinema.util.CreatePictureUtil;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,7 +26,7 @@ class UserControllerTest {
     @MockBean
     private UserService userService;
     @MockBean
-    private UserResponseMapper userResponseMapper;
+    private UserMapper userResponseMapper;
 
     @MockBean
     private ModelMap modelMap;

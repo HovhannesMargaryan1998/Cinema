@@ -2,16 +2,17 @@ package com.example.cinema.entity.userdetail;
 
 
 import com.example.cinema.entity.filmdetail.Film;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 
-@Data
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -25,7 +26,10 @@ public class User {
     private String name;
     private String surname;
     private String email;
-    @OneToMany
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_film",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "film_id", referencedColumnName = "id")})
     private List<Film> films;
     private String password;
     @Enumerated(value = EnumType.STRING)
@@ -34,5 +38,17 @@ public class User {
     private String token;
     private String pictureUrl;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        User user = (User) o;
+        return  Objects.equals(id, user.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 
 }
