@@ -12,9 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
@@ -25,9 +22,13 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Slf4j
 public class FilmService {
+
     private final FilmRepository filmRepository;
+
     private final ActorService actorService;
+
     private final DirectorService directorService;
+
     private final CreatePictureUtil createPictureUtil;
     private final FilmRequestMapper filmMapper;
     private final GenreService genreService;
@@ -86,6 +87,7 @@ public class FilmService {
         });
         return genres;
     }
+
     public List<Film> getLastFilms() {
         return filmRepository.findAll();
     }
@@ -117,8 +119,20 @@ public class FilmService {
         return actors;
     }
 
+    public Page<Film> getFilmByGenre(Genre genre, Pageable pageable) {
+        return filmRepository.findAllByGenres(genre, pageable);
+    }
+
+    public List<Film> getFilmByPremiere(int minDate, int maxDate) {
+        return filmRepository.findAllByPremiere_Year(minDate, maxDate);
+    }
+
+    public List<Film> getByRating() {
+        return filmRepository.findAllByRating();
+    }
+
     public boolean deleteFilmById(int id) {
-        if (filmRepository.findById(id).isPresent()){
+        if (filmRepository.findById(id).isPresent()) {
             filmRepository.deleteById(id);
             return true;
         }

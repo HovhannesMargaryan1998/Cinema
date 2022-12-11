@@ -24,18 +24,19 @@ public class Comment {
     private User user;
     @ManyToOne
     private Film film;
+    @Column(name = "comment")
     private String text;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Comment comment = (Comment) o;
-        return Objects.equals(id, comment.id);
+        return id == comment.id && Objects.equals(user, comment.user) && Objects.equals(film, comment.film) && Objects.equals(text, comment.text);
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(id, user, film, text);
     }
 }
