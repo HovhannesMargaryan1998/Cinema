@@ -1,18 +1,24 @@
 package com.example.cinema.repository;
 
 import com.example.cinema.entity.filmdetail.Film;
+import com.example.cinema.entity.filmdetail.Genre;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
 import java.util.List;
 import java.util.Optional;
-import org.springframework.data.jpa.repository.Query;
-
-import java.util.List;
 
 public interface FilmRepository extends JpaRepository<Film, Integer> {
+    Page<Film> findAllByGenres(Genre genre, Pageable pageable);
+
+
+
+    @Query(value = "select * from film where (YEAR(premiere)) between :minDate  and :maxDate",nativeQuery = true)
+    List<Film> findAllByPremiere_Year(int minDate,int maxDate);
+
+    @Query(value =  "select * from film order by rating desc",nativeQuery = true)
+    List<Film>findAllByRating();
     @Override
     Optional<Film> findById(Integer integer);
     List<Film> findAll();

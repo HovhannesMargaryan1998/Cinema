@@ -1,7 +1,7 @@
 package com.example.cinema.service;
 
-
 import com.example.cinema.dto.userrequestdetaildto.UserRequestDTO;
+import com.example.cinema.dto.userrequestdetaildto.UserUpdateRequestDTO;
 import com.example.cinema.entity.userdetail.Role;
 import com.example.cinema.entity.userdetail.User;
 import com.example.cinema.mapper.userrequestdetailmapper.UserMapper;
@@ -27,10 +27,11 @@ public class UserService {
     private final CreatePictureUtil creatPicture;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final UserMapper userRequestMapper;
+    private final UserMapper userMapper;
+
 
     public void registerUser(UserRequestDTO userRegisterRequestDTO, MultipartFile multipartFile) {
-        User user = userRequestMapper.map(userRegisterRequestDTO);
+        User user = userMapper.map(userRegisterRequestDTO);
         if (!multipartFile.isEmpty() && multipartFile.getSize() > 0) {
             user.setPictureUrl(creatPicture.creatPicture(multipartFile));
         }
@@ -42,38 +43,23 @@ public class UserService {
         log.info("user registered {}", user.getEmail());
     }
 
-    public boolean checkUniqueEmail(User user) {
+    public boolean checkUniqueEmail(User user){
         Optional<User> byEmail = userRepository.findByEmail(user.getEmail());
         return byEmail.isPresent();
     }
 
-    public void update(int id, UserRequestDTO userRequestDto) {
-        userRepository.findById(id).ifPresent(user -> {
-            if (userRequestDto.getName() != null) {
-                user.setName(userRequestDto.getName());
-            }
-            if (userRequestDto.getSurname() != null) {
-                user.setSurname(userRequestDto.getSurname());
-            }
-            if (userRequestDto.getEmail() != null) {
-                user.setEmail(userRequestDto.getEmail());
-            }
-            if (userRequestDto.getPassword() != null) {
-                user.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
-            }
-            user.setRole(Role.USER);
-            user.setEnable(true);
-            user.setId(id);
-            userRepository.save(user);
-        });
+    public void update(int id, UserUpdateRequestDTO userUpdateRequestDTO) {
+        User map = userMapper.map(userUpdateRequestDTO);
+        if (userUpdateRequestDTO.getPassword() != null) {
+            map.setPassword(passwordEncoder.encode(userUpdateRequestDTO.getPassword()));
+        }
+        map.setRole(Role.USER);
+        map.setEnable(true);
+        map.setId(id);
+        userMapper.map(userRepository.save(map));
+
     }
 
-    public Page<User> getAllUsers(Pageable pageable) {
-        if (userRepository.findAll(pageable).isEmpty()) {
-            return null;
-        }
-        return userRepository.findAll(pageable);
-    }
 
     public int getCountAllUsers() {
         return userRepository.countAllUsers();
@@ -85,6 +71,14 @@ public class UserService {
         }
         return userRepository.findLastFiveUsers();
     }
+    public Page<User> getAllUsers(Pageable pageable) {
+        if (userRepository.findAll(pageable).isEmpty()) {
+            return null;
+        }
+        return userRepository.findAll(pageable);
+    }
+
+
 
     public boolean deleteUserById(int id) {
         if (userRepository.findById(id).isPresent()){
