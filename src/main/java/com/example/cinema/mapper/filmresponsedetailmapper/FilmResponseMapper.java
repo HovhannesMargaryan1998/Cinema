@@ -1,12 +1,9 @@
 package com.example.cinema.mapper.filmresponsedetailmapper;
 
-import com.example.cinema.dto.filmresponsedetaildto.ActorResponseDTO;
-import com.example.cinema.dto.filmresponsedetaildto.DirectorResponseDTO;
 import com.example.cinema.dto.filmresponsedetaildto.FilmResponseDTO;
-import com.example.cinema.entity.filmdetail.Actor;
-import com.example.cinema.entity.filmdetail.Director;
 import com.example.cinema.entity.filmdetail.Film;
 import org.mapstruct.Mapper;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -16,5 +13,4 @@ public interface FilmResponseMapper {
     FilmResponseDTO map(Film film);
 
     List<FilmResponseDTO> map(List<Film> films);
-
 }

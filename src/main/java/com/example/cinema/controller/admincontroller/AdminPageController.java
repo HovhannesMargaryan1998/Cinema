@@ -1,22 +1,32 @@
 package com.example.cinema.controller.admincontroller;
 
-import com.example.cinema.service.ActorService;
-import com.example.cinema.service.DirectorService;
-import com.example.cinema.service.GenreService;
-import com.example.cinema.util.CheckImportedData;
+import com.example.cinema.mapper.filmresponsedetailmapper.ActorResponseMapper;
+import com.example.cinema.mapper.filmresponsedetailmapper.DirectorResponseMapper;
+import com.example.cinema.mapper.filmresponsedetailmapper.GenreResponseMapper;
+import com.example.cinema.service.*;
+import com.example.cinema.util.CreatePaginationUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
 public class AdminPageController {
+    private final FilmService filmService;
     private final GenreService genreService;
     private final ActorService actorService;
     private final DirectorService directorService;
+    private final UserService userService;
+    private final CreatePaginationUtil createPaginationUtil;
+    private final DirectorResponseMapper directorResponseMapper;
+    private final ActorResponseMapper actorResponseMapper;
+    private final GenreResponseMapper genreResponseMapper;
+
 
     @GetMapping("/admin/page")
     public String adminPage() {
@@ -25,32 +35,56 @@ public class AdminPageController {
 
     @GetMapping("/add/film")
     public String addFilmsPage(ModelMap modelMap) {
-        modelMap.addAttribute("directors", directorService.findAllDirectors());
-        modelMap.addAttribute("actors", actorService.findAllActors());
-        modelMap.addAttribute("genres", genreService.findAllGenres());
+        modelMap.addAttribute("directors", directorResponseMapper.map( directorService.findAllDirectors()));
+        modelMap.addAttribute("actors", actorResponseMapper.map(actorService.findAllActors()));
+        modelMap.addAttribute("genres", genreResponseMapper.map(genreService.findAllGenres()));
         return "admin/addFilm";
 
     }
 
     @GetMapping("/catalog/films")
-    public String CatalogFilmsPage() {
+    public String CatalogFilmsPage(@RequestParam("page") Optional<Integer> page, ModelMap modelMap,
+                                   @RequestParam("size") Optional<Integer> size) {
+        modelMap.addAttribute("allFilms",
+                filmService.getAllFilms(PageRequest.of(page.orElse(1) - 1, size.orElse(10))));
+        modelMap.addAttribute("pageNumbers",
+                createPaginationUtil.createPageNumbers(filmService.getAllFilms(PageRequest.of(page.orElse(1) - 1, size.orElse(10))).getTotalPages()));
+        modelMap.addAttribute("countAllFilms", filmService.getCountAllFilms());
+        return "admin/catalogFilms";
+    }
+
+    @GetMapping("/films/premiere")
+    public String getFilmsByDate(@RequestParam("page") Optional<Integer> page, ModelMap modelMap,
+                                 @RequestParam("size") Optional<Integer> size) {
+        modelMap.addAttribute("allFilms",
+                filmService.getFilmsSortedByPremiere(PageRequest.of(page.orElse(1) - 1, size.orElse(10))));
+        modelMap.addAttribute("pageNumbers",
+                createPaginationUtil.createPageNumbers(filmService.getFilmsSortedByPremiere(PageRequest.of(page.orElse(1) - 1, size.orElse(10))).getTotalPages()));
+        modelMap.addAttribute("countAllFilms", filmService.getCountAllFilms());
+        return "admin/catalogFilms";
+    }
+
+    @GetMapping("/films/rating")
+    public String getFilmsByRating(@RequestParam("page") Optional<Integer> page, ModelMap modelMap,
+                                   @RequestParam("size") Optional<Integer> size) {
+        modelMap.addAttribute("allFilms",
+                filmService.getFilmsSortedByRating(PageRequest.of(page.orElse(1) - 1, size.orElse(10))));
+        modelMap.addAttribute("pageNumbers",
+                createPaginationUtil.createPageNumbers(filmService.getFilmsSortedByRating(PageRequest.of(page.orElse(1) - 1, size.orElse(10))).getTotalPages()));
+        modelMap.addAttribute("countAllFilms", filmService.getCountAllFilms());
         return "admin/catalogFilms";
     }
 
     @GetMapping("/users/all")
-    public String allUsersPage() {
+    public String allUsersPage(@RequestParam("page") Optional<Integer> page, ModelMap modelMap,
+                               @RequestParam("size") Optional<Integer> size){
+        modelMap.addAttribute("countAllUsers", userService.getCountAllUsers());
+        modelMap.addAttribute("allUsers",
+                userService.getAllUsers(PageRequest.of(page.orElse(1) - 1, size.orElse(10))));
+        modelMap.addAttribute("pageNumbers",
+                createPaginationUtil.createPageNumbers(userService.getAllUsers(PageRequest.of(page.orElse(1) - 1, size.orElse(10))).getTotalPages()));
+
         return "admin/allUsers";
     }
-
-    @GetMapping("/all/comments/page")
-    public String allCommentsPage() {
-        return "admin/allComments";
-    }
-
-    @GetMapping("/edit/user")
-    public String editUserPage() {
-        return "admin/editUser";
-    }
-
 
 }

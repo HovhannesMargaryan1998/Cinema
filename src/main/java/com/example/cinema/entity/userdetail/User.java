@@ -4,8 +4,10 @@ package com.example.cinema.entity.userdetail;
 import com.example.cinema.entity.filmdetail.Film;
 import lombok.*;
 import org.hibernate.Hibernate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -37,6 +39,8 @@ public class User {
     private boolean isEnable;
     private String token;
     private String pictureUrl;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate registeredDate;
 
     @Override
     public boolean equals(Object o) {

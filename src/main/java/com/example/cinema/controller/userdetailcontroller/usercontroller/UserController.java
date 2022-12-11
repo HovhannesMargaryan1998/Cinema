@@ -7,6 +7,7 @@ import com.example.cinema.service.UserService;
 import com.example.cinema.util.CheckImportedData;
 import com.example.cinema.util.CreatePictureUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,10 +22,8 @@ import javax.validation.Valid;
 public class UserController {
 
     private final CreatePictureUtil createPictureUtil;
-
     private final CheckImportedData checkImportedData;
     private final UserService userService;
-
     private final UserMapper userResponseMapper;
 
     @GetMapping("/login")
@@ -47,21 +46,10 @@ public class UserController {
         return "main/register";
     }
 
-    @PostMapping("/register/user")
-    public String registerUser(@ModelAttribute @Valid UserRequestDTO userRequestDTO, BindingResult bindingResult,
-                               @RequestParam("imageUser") MultipartFile multipartFile, ModelMap modelMap) {
-        if (checkImportedData.checkUserData(bindingResult, userRequestDTO, multipartFile, modelMap).isPresent()){
-            checkImportedData.checkUserData(bindingResult, userRequestDTO, multipartFile, modelMap).get();
-            return "main/register";
-        }
-        userService.registerUser(userRequestDTO, multipartFile);
-        return "redirect:/user/login";
-    }
-
     @GetMapping("/getImage")
     public @ResponseBody byte[] getImage(@RequestParam("picName") String fileName) {
-        if (createPictureUtil.getImage(fileName) == null){
-           return null;
+        if (createPictureUtil.getImage(fileName) == null) {
+            return null;
         }
         return createPictureUtil.getImage(fileName);
     }
@@ -72,10 +60,32 @@ public class UserController {
         return "saveUser";
     }
 
+    @PostMapping("/register/user")
+    public String registerUser(@ModelAttribute @Valid UserRequestDTO userRequestDTO, BindingResult bindingResult,
+                               @RequestParam("imageUser") MultipartFile multipartFile, ModelMap modelMap) {
+        if (checkImportedData.checkUserData(bindingResult, userRequestDTO, multipartFile, modelMap).isPresent()) {
+            checkImportedData.checkUserData(bindingResult, userRequestDTO, multipartFile, modelMap).get();
+            return "main/register";
+        }
+        userService.registerUser(userRequestDTO, multipartFile);
+        return "redirect:/user/login";
+    }
+
     @PostMapping("/editUser/{id}")
     public String editUserPage(@PathVariable("id") int id, @ModelAttribute UserRequestDTO userRequestDto) {
         userService.update(id, userRequestDto);
         return "redirect:/";
+    }
+
+    @GetMapping("/user/delete/{id}")
+    public String deleteUserById(@PathVariable("id") int id, ModelMap modelMap, Pageable pageable) {
+        if (userService.deleteUserById(id)) {
+            return "redirect:/users/all";
+        }
+        modelMap.addAttribute("countAllUsers", userService.getCountAllUsers());
+        modelMap.addAttribute("allUsers", userService.getAllUsers(pageable));
+        modelMap.addAttribute("idNotExist", "id not exist");
+        return "admin/allUsers";
     }
 
 }
