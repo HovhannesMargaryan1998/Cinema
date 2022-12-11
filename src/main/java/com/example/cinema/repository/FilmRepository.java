@@ -8,6 +8,9 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 public interface FilmRepository extends JpaRepository<Film, Integer> {
     @Override
@@ -25,5 +28,9 @@ public interface FilmRepository extends JpaRepository<Film, Integer> {
 
     @Query(value = "SELECT * FROM film ORDER BY rating DESC", nativeQuery = true)
     Page<Film> findFilmSortedByRating(Pageable pageable);
+
+
+    @Query(value = "SELECT * FROM film ORDER BY premiere DESC LIMIT 4", nativeQuery = true)
+    List<Film> getFourNewFilms();
 
 }

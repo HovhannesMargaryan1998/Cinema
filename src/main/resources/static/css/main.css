@@ -58,6 +58,8 @@ body {
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
 }
+
+
 button {
   padding: 0;
   border: none;
@@ -76,6 +78,17 @@ a:active,
 a:focus {
   outline: none;
   text-decoration: none;
+}
+.card__cover img {
+  width: 110%;
+  height:300px;
+  position: relative;
+  z-index: 1;
+}
+.videoUrl > iframe{
+  width:500px;
+  height:350px;
+
 }
 input,
 textarea,
@@ -4071,6 +4084,76 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 .mCS-custom-bar3 {
   opacity: 1;
 }
+
+
+
+
+
+
+
+
+
+
+.rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#ccc;
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+#inactive {
+  color:white;
+}
+#inactive:hover {
+  color:red;
+}
+#heart{
+  color:red;
+}
+
+.rate > input:checked ~ label {
+  color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .mCS-custom-bar3.mCSB_outside + .mCSB_scrollTools {
   right: 20px;
   left: 20px;

@@ -1,11 +1,10 @@
 package com.example.cinema.service;
 
 import com.example.cinema.dto.filmrequestdetaildto.FilmRequestDTO;
-import com.example.cinema.entity.filmdetail.Actor;
-import com.example.cinema.entity.filmdetail.Film;
-import com.example.cinema.entity.filmdetail.Genre;
-import com.example.cinema.entity.filmdetail.Status;
+import com.example.cinema.entity.filmdetail.*;
+import com.example.cinema.entity.userdetail.User;
 import com.example.cinema.mapper.filmrequestdetaillmapper.FilmRequestMapper;
+import com.example.cinema.repository.CommentRepository;
 import com.example.cinema.repository.FilmRepository;
 import com.example.cinema.util.CreatePictureUtil;
 import lombok.RequiredArgsConstructor;
@@ -13,10 +12,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -28,6 +31,7 @@ public class FilmService {
     private final CreatePictureUtil createPictureUtil;
     private final FilmRequestMapper filmMapper;
     private final GenreService genreService;
+    private final CommentRepository commentRepository;
 
     public void addFilm(FilmRequestDTO filmRequestDTO, MultipartFile multipartFile) {
         Film film = filmMapper.map(filmRequestDTO);
@@ -81,6 +85,28 @@ public class FilmService {
             genres.add(genreService.getById(g));
         });
         return genres;
+    }
+    public List<Film> getLastFilms() {
+        return filmRepository.findAll();
+    }
+
+    public Film getFilmById(int film_id) {
+        return filmRepository.findById(film_id).orElse(null);
+    }
+
+    public List<Comment> getFilmComments(int film_id) {
+        return commentRepository.findAllByFilm_id(film_id);
+    }
+
+    public Film saveComment(String text, User user, int film_id) {
+        Optional<Film> filmOptional = filmRepository.findById(film_id);
+        Comment comment = Comment.builder()
+                .film(filmOptional.get())
+                .user(user)
+                .text(text)
+                .build();
+        commentRepository.save(comment);
+        return filmOptional.get();
     }
 
     private List<Actor> allActorsById(List<Integer> actorsIds) {
