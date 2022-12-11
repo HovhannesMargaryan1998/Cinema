@@ -44,7 +44,7 @@ public class CheckImportedData {
                 checkBinding(bindingResult, modelMap);
             }
             if (checkUniqueEmail(userRequestDTO)) {
-                modelMap.addAttribute("errorUniqueMessageEmail", "email already exist");
+                modelMap.addAttribute("errorMessageEmail", "email already exist");
             }
             if (createPictureUtil.isPictureNotAllowedType(multipartFile)) {
                 modelMap.addAttribute("errorMessageFile", "Please choose only image");

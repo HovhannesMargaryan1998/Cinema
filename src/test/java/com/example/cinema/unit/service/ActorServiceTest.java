@@ -5,7 +5,6 @@ import com.example.cinema.mapper.filmresponsedetailmapper.ActorResponseMapper;
 import com.example.cinema.repository.ActorRepository;
 import com.example.cinema.service.ActorService;
 import com.example.cinema.util.CreatePictureUtil;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

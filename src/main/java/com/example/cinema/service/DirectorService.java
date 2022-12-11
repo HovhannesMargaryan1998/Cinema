@@ -39,8 +39,8 @@ public class DirectorService {
 
     }
 
-    public List<DirectorResponseDTO> findAllDirectors() {
-        return directorResponseMapper.map(directorRepository.findAll()) ;
+    public List<Director> findAllDirectors() {
+        return directorRepository.findAll();
     }
 
 }

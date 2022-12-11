@@ -1,5 +1,6 @@
 package com.example.cinema.service;
 
+
 import com.example.cinema.dto.filmrequestdetaildto.ActorRequestDTO;
 import com.example.cinema.dto.filmresponsedetaildto.ActorResponseDTO;
 import com.example.cinema.entity.filmdetail.Actor;
@@ -18,10 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class
 ActorService {
-
-    private final ActorResponseMapper actorResponseMapper;
     private final ActorRequestMapper actorRequestMapper;
-
     private final ActorRepository actorRepository;
     private final CreatePictureUtil createPictureUtil;
 
@@ -34,14 +32,12 @@ ActorService {
         actorRepository.save(actor);
     }
 
-
-
     public Actor getById(int id) {
         return actorRepository.findById(id).orElse(null);
     }
 
-    public List<ActorResponseDTO> findAllActors() {
-        return actorResponseMapper.map(actorRepository.findAll());
+    public List<Actor> findAllActors() {
+        return actorRepository.findAll();
     }
 
     public int calculateAge(LocalDate localDate) {

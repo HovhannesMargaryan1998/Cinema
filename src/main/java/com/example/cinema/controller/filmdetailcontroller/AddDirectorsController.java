@@ -1,11 +1,9 @@
 package com.example.cinema.controller.filmdetailcontroller;
 
-import com.example.cinema.dto.filmrequestdetaildto.ActorRequestDTO;
+
 import com.example.cinema.dto.filmrequestdetaildto.DirectorRequestDTO;
-import com.example.cinema.entity.filmdetail.Director;
 import com.example.cinema.service.DirectorService;
 import com.example.cinema.util.CheckImportedData;
-import com.example.cinema.util.CreatePictureUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
