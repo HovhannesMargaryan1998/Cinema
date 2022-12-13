@@ -1,10 +1,8 @@
 package com.example.cinema.controller.filmdetailcontroller;
 
-import com.example.cinema.dto.filmrequestdetaildto.FilmRequestDTO;
-import com.example.cinema.service.ActorService;
-import com.example.cinema.service.DirectorService;
-import com.example.cinema.service.FilmService;
-import com.example.cinema.service.GenreService;
+import com.example.cinema.dto.filmrequestdto.FilmRequestDTO;
+import com.example.cinema.mapper.cinemaresponsemapper.TimeSinceResponseMapper;
+import com.example.cinema.service.*;
 import com.example.cinema.util.CheckImportedData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -25,6 +23,8 @@ public class FilmController {
     private final DirectorService directorService;
     private final CheckImportedData checkImportedData;
     private final FilmService filmService;
+    private final TimeSinceService timeSinceService;
+    private final TimeSinceResponseMapper timeSinceResponseMapper;
 
     @GetMapping("/add/actor")
     public String addActorPage() {
@@ -36,16 +36,6 @@ public class FilmController {
         return "/admin/addDirector";
     }
 
-    @GetMapping("/watch/film")
-    public String singleFilmPage() {
-        return "main/watchFilmPage";
-    }
-
-    @GetMapping("/films")
-    public String allFilmsPage() {
-        return "main/allFilmsPage";
-    }
-
     @PostMapping("/add/film")
     public String addFilm(@ModelAttribute @Valid FilmRequestDTO filmRequestDTO, BindingResult bindingResult,
                           @RequestParam("imageFilm") MultipartFile multipartFile, ModelMap modelMap) {
@@ -54,6 +44,7 @@ public class FilmController {
             modelMap.addAttribute("directors", directorService.findAllDirectors());
             modelMap.addAttribute("actors", actorService.findAllActors());
             modelMap.addAttribute("genres", genreService.findAllGenres());
+            modelMap.addAttribute("times", timeSinceResponseMapper.map(timeSinceService.findAllTimeSince()));
             return "admin/addFilm";
         }
         filmService.addFilm(filmRequestDTO, multipartFile);

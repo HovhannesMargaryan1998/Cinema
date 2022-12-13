@@ -44,7 +44,7 @@ public class Director {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         Director director = (Director) o;
-        return  Objects.equals(id, director.id);
+        return Objects.equals(id, director.id);
     }
 
     @Override

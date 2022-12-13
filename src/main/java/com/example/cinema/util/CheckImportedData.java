@@ -1,7 +1,7 @@
 package com.example.cinema.util;
 
-import com.example.cinema.dto.userrequestdetaildto.UserRequestDTO;
-import com.example.cinema.mapper.userrequestdetailmapper.UserMapper;
+import com.example.cinema.dto.userrequestdto.UserRequestDTO;
+import com.example.cinema.mapper.userrequestmapper.UserMapper;
 import com.example.cinema.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,9 +18,7 @@ import java.util.Optional;
 public class CheckImportedData {
 
     private final CreatePictureUtil createPictureUtil;
-
     private final UserService userService;
-
     private final UserMapper userMapper;
 
     public Optional<ModelMap> checkData(BindingResult bindingResult, MultipartFile multipartFile, ModelMap modelMap) {
@@ -36,14 +34,14 @@ public class CheckImportedData {
         return Optional.empty();
     }
 
-    public Optional<ModelMap> checkUserData(BindingResult bindingResult, UserRequestDTO userRequestDTO,
+    public Optional<ModelMap> checkDataAndEmail(BindingResult bindingResult, String email,
                                             MultipartFile multipartFile, ModelMap modelMap) {
-        if (bindingResult.hasErrors() || checkUniqueEmail(userRequestDTO)
+        if (bindingResult.hasErrors() || checkUniqueEmail(email)
                 || createPictureUtil.isPictureNotAllowedType(multipartFile)) {
             if (bindingResult.hasErrors()) {
                 checkBinding(bindingResult, modelMap);
             }
-            if (checkUniqueEmail(userRequestDTO)) {
+            if (checkUniqueEmail(email)) {
                 modelMap.addAttribute("errorMessageEmail", "email already exist");
             }
             if (createPictureUtil.isPictureNotAllowedType(multipartFile)) {
@@ -63,8 +61,8 @@ public class CheckImportedData {
         return modelMap;
     }
 
-    private boolean checkUniqueEmail(UserRequestDTO userRequestDTO) {
-        return userService.checkUniqueEmail(userMapper.map(userRequestDTO));
+    private boolean checkUniqueEmail(String email) {
+        return userService.checkUniqueEmail(email);
     }
 
 }

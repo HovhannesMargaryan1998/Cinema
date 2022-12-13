@@ -1,7 +1,7 @@
 package com.example.cinema.unit.service;
 
-import com.example.cinema.mapper.filmrequestdetaillmapper.ActorRequestMapper;
-import com.example.cinema.mapper.filmresponsedetailmapper.ActorResponseMapper;
+import com.example.cinema.mapper.filmrequestmapper.ActorRequestMapper;
+import com.example.cinema.mapper.filmresponsemapper.ActorResponseMapper;
 import com.example.cinema.repository.ActorRepository;
 import com.example.cinema.service.ActorService;
 import com.example.cinema.util.CreatePictureUtil;

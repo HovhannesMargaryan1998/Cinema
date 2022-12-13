@@ -1,9 +1,9 @@
 package com.example.cinema.controller.userdetailcontroller.usercontroller;
 
 
-import com.example.cinema.dto.userresponsedetaildto.UserResponseDTO;
+import com.example.cinema.dto.userresponsedto.UserResponseDTO;
 import com.example.cinema.entity.userdetail.Role;
-import com.example.cinema.mapper.userrequestdetailmapper.UserMapper;
+import com.example.cinema.mapper.userrequestmapper.UserMapper;
 import com.example.cinema.security.CurrentUser;
 import com.example.cinema.service.FilmService;
 import com.example.cinema.service.UserService;
@@ -39,6 +39,5 @@ public class UserProfilePageController {
         }
         return "redirect:/";
     }
-
 
 }

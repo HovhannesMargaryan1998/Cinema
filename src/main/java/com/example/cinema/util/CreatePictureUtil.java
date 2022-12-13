@@ -42,7 +42,7 @@ public class CreatePictureUtil {
         try {
             InputStream inputStream = new FileInputStream(folderPath + File.separator + fileName);
             return IOUtils.toByteArray(inputStream);
-        }catch (IOException e){
+        } catch (IOException e) {
             log.error("method getImage in CreatePictureUtil failed", e);
             return null;
         }

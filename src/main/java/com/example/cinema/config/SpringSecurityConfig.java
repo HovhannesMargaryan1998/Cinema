@@ -13,7 +13,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsImpl userDetails;
-
     private final PasswordEncoder passwordEncoder;
 
 
@@ -23,7 +22,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .formLogin()
                 .loginPage("/login").permitAll()
-//                .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/user/profile")
                 .and()
                 .logout()
@@ -32,9 +30,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/user/profile").authenticated()
+                .antMatchers("/cinema/*").authenticated()
                 .anyRequest().permitAll();
-
-
 
 
     }

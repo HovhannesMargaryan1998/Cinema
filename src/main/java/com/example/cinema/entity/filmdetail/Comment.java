@@ -24,6 +24,7 @@ public class Comment {
     private User user;
     @ManyToOne
     private Film film;
+    @Column(name = "comment")
     private String text;
 
     @Override

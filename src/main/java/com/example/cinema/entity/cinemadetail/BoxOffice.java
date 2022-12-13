@@ -24,8 +24,6 @@ public class BoxOffice {
     private int id;
     @DateTimeFormat(pattern = ("HH-mm-ss"))
     private LocalDate time;
-    private int duration_min;
-    private String ageLimit;
     private double price;
     @ManyToOne
     private User user;
@@ -34,4 +32,6 @@ public class BoxOffice {
     @ManyToOne
     private Film film;
     private int seatingNumber;
+    private LocalDate date;
+
 }

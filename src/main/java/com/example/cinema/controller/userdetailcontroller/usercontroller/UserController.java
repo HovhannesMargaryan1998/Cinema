@@ -1,7 +1,7 @@
 package com.example.cinema.controller.userdetailcontroller.usercontroller;
 
-import com.example.cinema.dto.userrequestdetaildto.UserRequestDTO;
-import com.example.cinema.mapper.userrequestdetailmapper.UserMapper;
+import com.example.cinema.dto.userrequestdto.UserRequestDTO;
+import com.example.cinema.mapper.userrequestmapper.UserMapper;
 import com.example.cinema.security.CurrentUser;
 import com.example.cinema.service.UserService;
 import com.example.cinema.util.CheckImportedData;
@@ -24,7 +24,7 @@ public class UserController {
     private final CreatePictureUtil createPictureUtil;
     private final CheckImportedData checkImportedData;
     private final UserService userService;
-    private final UserMapper userResponseMapper;
+    private final UserMapper userMapper;
 
     @GetMapping("/login")
     public String login() {
@@ -56,18 +56,18 @@ public class UserController {
 
     @GetMapping("/editUser")
     public String editUserPage(@AuthenticationPrincipal CurrentUser currentUser, ModelMap map) {
-        map.addAttribute("user", userResponseMapper.map(currentUser.getUser()));
+        map.addAttribute("user", userMapper.map(currentUser.getUser()));
         return "saveUser";
     }
 
     @PostMapping("/register/user")
     public String registerUser(@ModelAttribute @Valid UserRequestDTO userRequestDTO, BindingResult bindingResult,
                                @RequestParam("imageUser") MultipartFile multipartFile, ModelMap modelMap) {
-        if (checkImportedData.checkUserData(bindingResult, userRequestDTO, multipartFile, modelMap).isPresent()) {
-            checkImportedData.checkUserData(bindingResult, userRequestDTO, multipartFile, modelMap).get();
+        if (checkImportedData.checkDataAndEmail(bindingResult, userRequestDTO.getEmail(), multipartFile, modelMap).isPresent()) {
+            checkImportedData.checkDataAndEmail(bindingResult, userRequestDTO.getEmail(), multipartFile, modelMap).get();
             return "main/register";
         }
-        userService.registerUser(userRequestDTO, multipartFile);
+        userService.registerUser(userMapper.map(userRequestDTO), multipartFile);
         return "redirect:/user/login";
     }
 

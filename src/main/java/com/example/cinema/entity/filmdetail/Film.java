@@ -1,5 +1,6 @@
 package com.example.cinema.entity.filmdetail;
 
+import com.example.cinema.entity.cinemadetail.TimeSince;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -18,6 +19,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "film")
 public class Film {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,13 +49,18 @@ public class Film {
             inverseJoinColumns = {@JoinColumn(name = "genre_id", referencedColumnName = "id")})
     private List<Genre> genres;
     private String ageLimit;
+    @ManyToMany
+    @JoinTable(name = "film_time",
+            joinColumns = {@JoinColumn(name = "film_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "time_since_id", referencedColumnName = "id")})
+    private List<TimeSince> times;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         Film film = (Film) o;
-        return  Objects.equals(id, film.id);
+        return Objects.equals(id, film.id);
     }
 
     @Override
