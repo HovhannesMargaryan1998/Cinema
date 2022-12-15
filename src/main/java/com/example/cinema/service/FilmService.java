@@ -28,6 +28,7 @@ public class FilmService {
     private final ActorService actorService;
     private final DirectorService directorService;
     private final CreatePictureUtil createPictureUtil;
+    private final FilmRequestMapper filmMapper;
     private final GenreService genreService;
     private final CommentRepository commentRepository;
     private final FilmRequestMapper filmRequestMapper;
@@ -143,6 +144,23 @@ public class FilmService {
             timeSince.add(timeSinceService.getById(t));
         });
         return timeSince;
+    public Page<Film> getFilmByGenre(Genre genre, Pageable pageable) {
+        return filmRepository.findAllByGenres(genre, pageable);
     }
 
+    public List<Film> getFilmByPremiere(int minDate, int maxDate) {
+        return filmRepository.findAllByPremiere_Year(minDate, maxDate);
+    }
+
+    public List<Film> getByRating() {
+        return filmRepository.findAllByRating();
+    }
+
+    public boolean deleteFilmById(int id) {
+        if (filmRepository.findById(id).isPresent()) {
+            filmRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
 }

@@ -2,6 +2,8 @@ package com.example.cinema.service;
 
 
 import com.example.cinema.dto.userrequestdto.UserRequestDTO;
+import com.example.cinema.dto.userrequestdetaildto.UserRequestDTO;
+import com.example.cinema.dto.userrequestdetaildto.UserUpdateRequestDTO;
 import com.example.cinema.entity.userdetail.Role;
 import com.example.cinema.entity.userdetail.User;
 import com.example.cinema.repository.UserRepository;
@@ -26,8 +28,11 @@ public class UserService {
     private final CreatePictureUtil creatPicture;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final UserMapper userMapper;
 
-    public void registerUser(User user, MultipartFile multipartFile) {
+
+    public void registerUser(UserRequestDTO userRegisterRequestDTO, MultipartFile multipartFile) {
+        User user = userMapper.map(userRegisterRequestDTO);
         if (!multipartFile.isEmpty() && multipartFile.getSize() > 0) {
             user.setPictureUrl(creatPicture.creatPicture(multipartFile));
         }
@@ -46,26 +51,15 @@ public class UserService {
         return byEmail.isPresent();
     }
 
-    public void update(int id, UserRequestDTO userRequestDto) {
-        userRepository.findById(id).ifPresent(user -> {
-            if (userRequestDto.getName() != null) {
-                user.setName(userRequestDto.getName());
-            }
-            if (userRequestDto.getSurname() != null) {
-                user.setSurname(userRequestDto.getSurname());
-            }
-            if (userRequestDto.getEmail() != null) {
-                user.setEmail(userRequestDto.getEmail());
-            }
-            if (userRequestDto.getPassword() != null) {
-                user.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
-            }
-            user.setRole(Role.USER);
-            user.setEnable(true);
-            user.setId(id);
-            userRepository.save(user);
-        });
-    }
+    public void update(int id, UserUpdateRequestDTO userUpdateRequestDTO) {
+        User map = userMapper.map(userUpdateRequestDTO);
+        if (userUpdateRequestDTO.getPassword() != null) {
+            map.setPassword(passwordEncoder.encode(userUpdateRequestDTO.getPassword()));
+        }
+        map.setRole(Role.USER);
+        map.setEnable(true);
+        map.setId(id);
+        userMapper.map(userRepository.save(map));
 
     public Page<User> getAllUsers(Pageable pageable) {
         if (userRepository.findAll(pageable).isEmpty()) {
