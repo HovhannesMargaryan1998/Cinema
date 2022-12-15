@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface FilmRepository extends JpaRepository<Film, Integer> {
+
     Page<Film> findAllByGenres(Genre genre, Pageable pageable);
 
 
@@ -21,10 +22,16 @@ public interface FilmRepository extends JpaRepository<Film, Integer> {
     List<Film>findAllByRating();
     @Override
     Optional<Film> findById(Integer integer);
+
     List<Film> findAll();
-     void deleteById(int id);
+
+    void deleteById(int id);
+
     @Query(value = "SELECT COUNT(id) FROM film", nativeQuery = true)
     int countAllFilms();
+
+    @Query(value = "SELECT * FROM film where status = 'IN_CINEMA'", nativeQuery = true)
+    List<Film> findOnlyCinemaFilms();
 
     @Query(value = "SELECT * FROM film ORDER BY rating DESC LIMIT 5", nativeQuery = true)
     List<Film> findFiveFilmsByRating();
@@ -34,9 +41,5 @@ public interface FilmRepository extends JpaRepository<Film, Integer> {
 
     @Query(value = "SELECT * FROM film ORDER BY rating DESC", nativeQuery = true)
     Page<Film> findFilmSortedByRating(Pageable pageable);
-
-
-    @Query(value = "SELECT * FROM film ORDER BY premiere DESC LIMIT 4", nativeQuery = true)
-    List<Film> getFourNewFilms();
 
 }

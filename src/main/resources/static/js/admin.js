@@ -70,6 +70,10 @@ $(document).ready(function () {
 
 		placeholder: "Choose country / countries"
 	});
+	$('#status').select2({
+
+		placeholder: "Choose status"
+	});
 	$('#directorId').select2({
 		maximumSelectionLength:1,
 		placeholder: "Choose filmmaker"
@@ -81,6 +85,18 @@ $(document).ready(function () {
 
 	$('#actorsId').select2({
 		placeholder: "Choose actor"
+	});
+	$('#filmsId').select2({
+		placeholder: "Choose films"
+	});
+	$('#cinemaId').select2({
+		placeholder: "Choose cinema"
+	});
+	$('#cinemaFilmsId').select2({
+		placeholder: "Choose films"
+	});
+	$('#timeSinceId').select2({
+		placeholder: "Choose time since"
 	});
 
 	$('#subscription, #rights').select2();

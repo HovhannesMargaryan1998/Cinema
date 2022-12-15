@@ -1,9 +1,10 @@
 package com.example.cinema.service;
 
-import com.example.cinema.dto.filmrequestdetaildto.FilmRequestDTO;
+import com.example.cinema.dto.filmrequestdto.FilmRequestDTO;
+import com.example.cinema.entity.cinemadetail.TimeSince;
 import com.example.cinema.entity.filmdetail.*;
 import com.example.cinema.entity.userdetail.User;
-import com.example.cinema.mapper.filmrequestdetaillmapper.FilmRequestMapper;
+import com.example.cinema.mapper.filmrequestmapper.FilmRequestMapper;
 import com.example.cinema.repository.CommentRepository;
 import com.example.cinema.repository.FilmRepository;
 import com.example.cinema.util.CreatePictureUtil;
@@ -24,22 +25,23 @@ import java.util.Optional;
 public class FilmService {
 
     private final FilmRepository filmRepository;
-
     private final ActorService actorService;
-
     private final DirectorService directorService;
-
     private final CreatePictureUtil createPictureUtil;
     private final FilmRequestMapper filmMapper;
     private final GenreService genreService;
     private final CommentRepository commentRepository;
+    private final FilmRequestMapper filmRequestMapper;
+    private final TimeSinceService timeSinceService;
 
     public void addFilm(FilmRequestDTO filmRequestDTO, MultipartFile multipartFile) {
-        Film film = filmMapper.map(filmRequestDTO);
-        film.setStatus(Status.ONLINE);
+        Film film = filmRequestMapper.map(filmRequestDTO);
         film.setDirector(directorService.findById(filmRequestDTO.getDirectorId()));
         film.setGenres(allGenresById(filmRequestDTO.getGenresId()));
         film.setActors(allActorsById(filmRequestDTO.getActorsId()));
+        if (film.getStatus() == Status.IN_CINEMA) {
+            film.setTimes(allTimeSinceId(filmRequestDTO.getTimeSinceId()));
+        }
         if (!multipartFile.isEmpty() && multipartFile.getSize() > 0) {
             film.setPictureUrl(createPictureUtil.creatPicture(multipartFile));
         }
@@ -80,12 +82,12 @@ public class FilmService {
         return filmRepository.findFilmSortedByRating(pageable);
     }
 
-    private List<Genre> allGenresById(List<Integer> genresIds) {
-        var genres = new ArrayList<Genre>();
-        genresIds.stream().filter(genreId -> genreId != 0).forEach(g -> {
-            genres.add(genreService.getById(g));
-        });
-        return genres;
+    public boolean deleteFilmById(int id) {
+        if (filmRepository.findById(id).isPresent()) {
+            filmRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     public List<Film> getLastFilms() {
@@ -100,6 +102,14 @@ public class FilmService {
         return commentRepository.findAllByFilm_id(film_id);
     }
 
+    public List<Film> getOnlyCinemaFilms() {
+        return filmRepository.findOnlyCinemaFilms();
+    }
+
+    public Film getById(int id) {
+        return filmRepository.findById(id).orElse(null);
+    }
+
     public Film saveComment(String text, User user, int film_id) {
         Optional<Film> filmOptional = filmRepository.findById(film_id);
         Comment comment = Comment.builder()
@@ -109,14 +119,6 @@ public class FilmService {
                 .build();
         commentRepository.save(comment);
         return filmOptional.get();
-    }
-
-    private List<Actor> allActorsById(List<Integer> actorsIds) {
-        var actors = new ArrayList<Actor>();
-        actorsIds.stream().filter(actorId -> actorId != 0).forEach(g -> {
-            actors.add(actorService.getById(g));
-        });
-        return actors;
     }
 
     public Page<Film> getFilmByGenre(Genre genre, Pageable pageable) {
@@ -131,11 +133,29 @@ public class FilmService {
         return filmRepository.findAllByRating();
     }
 
-    public boolean deleteFilmById(int id) {
-        if (filmRepository.findById(id).isPresent()) {
-            filmRepository.deleteById(id);
-            return true;
-        }
-        return false;
+    private List<Genre> allGenresById(List<Integer> genresIds) {
+        var genres = new ArrayList<Genre>();
+        genresIds.stream().filter(genreId -> genreId
+                != 0).forEach(g -> {
+            genres.add(genreService.getById(g));
+        });
+        return genres;
     }
+
+    private List<Actor> allActorsById(List<Integer> actorsIds) {
+        var actors = new ArrayList<Actor>();
+        actorsIds.stream().filter(actorId -> actorId != 0).forEach(g -> {
+            actors.add(actorService.getById(g));
+        });
+        return actors;
+    }
+
+    private List<TimeSince> allTimeSinceId(List<Integer> timeSinceId) {
+        var timeSince = new ArrayList<TimeSince>();
+        timeSinceId.stream().filter(timeId -> timeId != 0).forEach(t -> {
+            timeSince.add(timeSinceService.getById(t));
+        });
+        return timeSince;
+    }
+
 }

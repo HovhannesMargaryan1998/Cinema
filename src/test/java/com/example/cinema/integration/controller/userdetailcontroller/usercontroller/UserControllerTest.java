@@ -1,6 +1,6 @@
 package com.example.cinema.integration.controller.userdetailcontroller.usercontroller;
 
-import com.example.cinema.mapper.userrequestdetailmapper.UserMapper;
+import com.example.cinema.mapper.userrequestmapper.UserMapper;
 import com.example.cinema.service.UserService;
 import com.example.cinema.util.CreatePictureUtil;
 import org.junit.jupiter.api.extension.ExtendWith;

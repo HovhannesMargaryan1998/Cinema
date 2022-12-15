@@ -1,10 +1,9 @@
 package com.example.cinema.controller.userdetailcontroller.usercontroller;
 
-import com.example.cinema.dto.userrequestdetaildto.UserRequestDTO;
-
-import com.example.cinema.dto.userrequestdetaildto.UserUpdateRequestDTO;
+import com.example.cinema.dto.userrequestdto.UserRequestDTO;
+import com.example.cinema.dto.userrequestdto.UserUpdateRequestDTO;
 import com.example.cinema.entity.filmdetail.Comment;
-import com.example.cinema.mapper.userrequestdetailmapper.UserMapper;
+import com.example.cinema.mapper.userrequestmapper.UserMapper;
 import com.example.cinema.security.CurrentUser;
 import com.example.cinema.service.CommentService;
 import com.example.cinema.service.UserService;
@@ -52,21 +51,10 @@ public class UserController {
         return "main/register";
     }
 
-    @PostMapping("/register/user")
-    public String registerUser(@ModelAttribute @Valid UserRequestDTO userRequestDTO, BindingResult bindingResult,
-                               @RequestParam("imageUser") MultipartFile multipartFile, ModelMap modelMap) {
-        if (checkImportedData.checkUserData(bindingResult, userRequestDTO, multipartFile, modelMap).isPresent()) {
-            checkImportedData.checkUserData(bindingResult, userRequestDTO, multipartFile, modelMap).get();
-            return "main/register";
-        }
-        userService.registerUser(userRequestDTO, multipartFile);
-        return "redirect:/user/login";
-    }
-
     @GetMapping("/getImage")
     public @ResponseBody byte[] getImage(@RequestParam("picName") String fileName) {
-        if (createPictureUtil.getImage(fileName) == null){
-           return null;
+        if (createPictureUtil.getImage(fileName) == null) {
+            return null;
         }
         return createPictureUtil.getImage(fileName);
     }
@@ -75,6 +63,17 @@ public class UserController {
     public String editUserPage(@AuthenticationPrincipal CurrentUser currentUser, ModelMap map) {
         map.addAttribute("user", userMapper.map(currentUser.getUser()));
         return "saveUser";
+    }
+
+    @PostMapping("/register/user")
+    public String registerUser(@ModelAttribute @Valid UserRequestDTO userRequestDTO, BindingResult bindingResult,
+                               @RequestParam("imageUser") MultipartFile multipartFile, ModelMap modelMap) {
+        if (checkImportedData.checkDataAndEmail(bindingResult, userRequestDTO.getEmail(), multipartFile, modelMap).isPresent()) {
+            checkImportedData.checkDataAndEmail(bindingResult, userRequestDTO.getEmail(), multipartFile, modelMap).get();
+            return "main/register";
+        }
+        userService.registerUser(userRequestDTO, multipartFile);
+        return "redirect:/user/login";
     }
 
     @PostMapping("/editUser/{id}")

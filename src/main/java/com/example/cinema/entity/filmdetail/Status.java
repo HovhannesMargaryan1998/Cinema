@@ -4,4 +4,5 @@ public enum Status {
 
     IN_CINEMA,
     ONLINE
+
 }

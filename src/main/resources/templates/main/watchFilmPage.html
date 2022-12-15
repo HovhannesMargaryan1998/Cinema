@@ -137,8 +137,8 @@
                             <li>Running time:<span> </span><span th:text="${film.durationMinute}"></span></li>
                             <li>Country:<span> </span><a href="#" th:text="${film.country}"></a></li>
                             <li><span>Actor: </span>  <span th:each="actor:${film.actors}">
-                                <a href="#" th:text="${actor.name}"></a></span></li>
-                            <li>Director:<span> </span><a href="#" th:text="${film.director.name}"></a></li>
+                                <a href="#" th:text="${actor.name + ' ' + actor.surname}"></a></span></li>
+                            <li>Director:<span> </span><a href="#" th:text="${film.director.name + ' ' + film.director.surname}"></a></li>
 
                         </ul>
 

@@ -1,0 +1,27 @@
+package com.example.cinema.dto.cinemarequestdto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class BoxOfficeRequestDTO {
+    @NotNull
+    private int timeId;
+    private double price;
+    private int userId;
+    private int cinemaId;
+    private int filmId;
+    private int seatingNumber;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
+
+}

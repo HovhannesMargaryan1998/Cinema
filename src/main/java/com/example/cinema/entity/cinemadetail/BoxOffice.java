@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 @AllArgsConstructor
@@ -23,9 +24,7 @@ public class BoxOffice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @DateTimeFormat(pattern = ("HH-mm-ss"))
-    private LocalDate time;
-    private int duration_min;
-    private String ageLimit;
+    private LocalTime timeSince;
     private double price;
     @ManyToOne
     private User user;
@@ -34,4 +33,7 @@ public class BoxOffice {
     @ManyToOne
     private Film film;
     private int seatingNumber;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
+
 }

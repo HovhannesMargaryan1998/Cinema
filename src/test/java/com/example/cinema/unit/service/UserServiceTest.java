@@ -1,10 +1,10 @@
 package com.example.cinema.unit.service;
 
 
-import com.example.cinema.dto.userrequestdetaildto.UserRequestDTO;
+import com.example.cinema.dto.userrequestdto.UserRequestDTO;
 import com.example.cinema.entity.userdetail.Role;
 import com.example.cinema.entity.userdetail.User;
-import com.example.cinema.mapper.userrequestdetailmapper.UserMapper;
+import com.example.cinema.mapper.userrequestmapper.UserMapper;
 import com.example.cinema.repository.UserRepository;
 import com.example.cinema.service.UserService;
 import com.example.cinema.util.CreatePictureUtil;
@@ -41,7 +41,7 @@ class UserServiceTest {
     private UserRequestDTO userRequestDTO = UserRequestDTO.builder()
             .name("some-name")
             .surname("some-surname")
-            .email("some@mail.com")
+            .email("some@gmailcom")
             .password("some-password")
             .pictureUrl("some-picture-name")
             .build();
@@ -65,7 +65,6 @@ class UserServiceTest {
         String pictureName = "some-picture-name";
         String password = "some-password";
 
-        when(userRequestMapper.map(userRequestDTO)).thenReturn(user);
         when(createPictureUtil.creatPicture(any())).thenReturn(pictureName);
         when(multipartFile.isEmpty()).thenReturn(false);
         when(multipartFile.getSize()).thenReturn(2L);
