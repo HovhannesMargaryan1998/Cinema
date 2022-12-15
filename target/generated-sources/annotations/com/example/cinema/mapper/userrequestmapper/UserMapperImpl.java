@@ -1,6 +1,7 @@
 package com.example.cinema.mapper.userrequestmapper;
 
 import com.example.cinema.dto.userrequestdto.UserRequestDTO;
+import com.example.cinema.dto.userrequestdto.UserUpdateRequestDTO;
 import com.example.cinema.dto.userresponsedto.UserResponseDTO;
 import com.example.cinema.dto.userresponsedto.UserResponseDTO.UserResponseDTOBuilder;
 import com.example.cinema.entity.filmdetail.Film;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-12-13T17:38:24+0400",
+    date = "2022-12-15T14:09:26+0400",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.5 (Amazon.com Inc.)"
 )
 @Component
@@ -32,6 +33,30 @@ public class UserMapperImpl implements UserMapper {
         user.email( userRegisterRequestDTO.getEmail() );
         user.password( userRegisterRequestDTO.getPassword() );
         user.pictureUrl( userRegisterRequestDTO.getPictureUrl() );
+
+        return user.build();
+    }
+
+    @Override
+    public User map(UserUpdateRequestDTO userUpdateRequestDTO) {
+        if ( userUpdateRequestDTO == null ) {
+            return null;
+        }
+
+        UserBuilder user = User.builder();
+
+        if ( userUpdateRequestDTO.getName() != null ) {
+            user.name( userUpdateRequestDTO.getName() );
+        }
+        if ( userUpdateRequestDTO.getSurname() != null ) {
+            user.surname( userUpdateRequestDTO.getSurname() );
+        }
+        if ( userUpdateRequestDTO.getEmail() != null ) {
+            user.email( userUpdateRequestDTO.getEmail() );
+        }
+        if ( userUpdateRequestDTO.getPassword() != null ) {
+            user.password( userUpdateRequestDTO.getPassword() );
+        }
 
         return user.build();
     }

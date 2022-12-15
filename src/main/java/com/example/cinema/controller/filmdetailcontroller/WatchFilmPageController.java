@@ -19,7 +19,9 @@ public class WatchFilmPageController {
     private final FilmResponseMapper filmResponseMapper;
 
     @GetMapping("/watch/film")
-    public String singleFilmPage(@AuthenticationPrincipal CurrentUser currentUser, ModelMap modelMap, @RequestParam("film_id") int film_id) {
+    public String singleFilmPage(@AuthenticationPrincipal CurrentUser currentUser,
+                                 ModelMap modelMap, @RequestParam("film_id") int film_id) {
+
         if (filmService.getFilmById(film_id) == null) {
             return "redirect:/";
         } else {

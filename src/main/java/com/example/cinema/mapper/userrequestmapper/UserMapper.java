@@ -1,7 +1,8 @@
-package com.example.cinema.mapper.userrequestdetailmapper;
+package com.example.cinema.mapper.userrequestmapper;
 
 
 import com.example.cinema.dto.userrequestdto.UserRequestDTO;
+import com.example.cinema.dto.userrequestdto.UserUpdateRequestDTO;
 import com.example.cinema.dto.userresponsedto.UserResponseDTO;
 import com.example.cinema.entity.userdetail.User;
 import org.mapstruct.BeanMapping;

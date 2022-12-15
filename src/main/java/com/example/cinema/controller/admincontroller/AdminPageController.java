@@ -63,6 +63,7 @@ public class AdminPageController {
     @GetMapping("/catalog/films")
     public String CatalogFilmsPage(@RequestParam("page") Optional<Integer> page, ModelMap modelMap,
                                    @RequestParam("size") Optional<Integer> size) {
+
         modelMap.addAttribute("allFilms",
                 filmService.getAllFilms(PageRequest.of(page.orElse(1) - 1, size.orElse(10))));
         modelMap.addAttribute("pageNumbers",
@@ -74,6 +75,7 @@ public class AdminPageController {
     @GetMapping("/films/premiere")
     public String getFilmsByDate(@RequestParam("page") Optional<Integer> page, ModelMap modelMap,
                                  @RequestParam("size") Optional<Integer> size) {
+
         modelMap.addAttribute("allFilms",
                 filmService.getFilmsSortedByPremiere(PageRequest.of(page.orElse(1) - 1, size.orElse(10))));
         modelMap.addAttribute("pageNumbers",
@@ -85,6 +87,7 @@ public class AdminPageController {
     @GetMapping("/films/rating")
     public String getFilmsByRating(@RequestParam("page") Optional<Integer> page, ModelMap modelMap,
                                    @RequestParam("size") Optional<Integer> size) {
+
         modelMap.addAttribute("allFilms",
                 filmService.getFilmsSortedByRating(PageRequest.of(page.orElse(1) - 1, size.orElse(10))));
         modelMap.addAttribute("pageNumbers",
@@ -96,12 +99,12 @@ public class AdminPageController {
     @GetMapping("/users/all")
     public String allUsersPage(@RequestParam("page") Optional<Integer> page, ModelMap modelMap,
                                @RequestParam("size") Optional<Integer> size) {
+
         modelMap.addAttribute("countAllUsers", userService.getCountAllUsers());
         modelMap.addAttribute("allUsers",
                 userService.getAllUsers(PageRequest.of(page.orElse(1) - 1, size.orElse(10))));
-        modelMap.addAttribute("pageNumbers",
-                createPaginationUtil.createPageNumbers(userService.getAllUsers(PageRequest.of(page.orElse(1) - 1, size.orElse(10))).getTotalPages()));
-
+        modelMap.addAttribute("pageNumbers", createPaginationUtil.createPageNumbers
+                (userService.getAllUsers(PageRequest.of(page.orElse(1) - 1, size.orElse(10))).getTotalPages()));
         return "admin/allUsers";
     }
 

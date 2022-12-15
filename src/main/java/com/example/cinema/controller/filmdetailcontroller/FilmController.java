@@ -3,7 +3,6 @@ package com.example.cinema.controller.filmdetailcontroller;
 import com.example.cinema.dto.filmrequestdto.FilmRequestDTO;
 import com.example.cinema.mapper.cinemaresponsemapper.TimeSinceResponseMapper;
 import com.example.cinema.service.*;
-import com.example.cinema.dto.filmrequestdetaildto.FilmRequestDTO;
 import com.example.cinema.entity.filmdetail.Film;
 import com.example.cinema.entity.filmdetail.Genre;
 import com.example.cinema.service.ActorService;
@@ -39,7 +38,6 @@ public class FilmController {
     private final FilmService filmService;
     private final TimeSinceService timeSinceService;
     private final TimeSinceResponseMapper timeSinceResponseMapper;
-
     private final CreatePictureUtil createPictureUtil;
 
     @GetMapping("/add/actor")
@@ -114,6 +112,7 @@ public class FilmController {
     @PostMapping("/add/film")
     public String addFilm(@ModelAttribute @Valid FilmRequestDTO filmRequestDTO, BindingResult bindingResult,
                           @RequestParam("imageFilm") MultipartFile multipartFile, ModelMap modelMap) {
+
         if (checkImportedData.checkData(bindingResult, multipartFile, modelMap).isPresent()) {
             checkImportedData.checkData(bindingResult, multipartFile, modelMap).get();
             modelMap.addAttribute("directors", directorService.findAllDirectors());

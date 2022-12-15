@@ -2,6 +2,7 @@ package com.example.cinema.repository;
 
 
 import com.example.cinema.entity.userdetail.User;
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -19,5 +20,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query(value = "SELECT * FROM USER WHERE role = 'USER' ORDER BY id DESC LIMIT 5 ", nativeQuery = true)
     List<User> findLastFiveUsers();
+
 
 }

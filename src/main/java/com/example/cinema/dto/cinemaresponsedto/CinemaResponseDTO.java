@@ -22,5 +22,6 @@ public class CinemaResponseDTO {
     private String email;
     private int spaciousness;
     private String pictureUrl;
+    private double price;
 
 }

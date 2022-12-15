@@ -1,6 +1,7 @@
 package com.example.cinema.unit.service;
 
 
+import com.example.cinema.dto.userrequestdto.UserRequestDTO;
 import com.example.cinema.entity.userdetail.Role;
 import com.example.cinema.entity.userdetail.User;
 import com.example.cinema.mapper.userrequestmapper.UserMapper;
@@ -37,6 +38,14 @@ class UserServiceTest {
     @InjectMocks
     private UserService userService;
 
+    private UserRequestDTO userRequestDTO = UserRequestDTO.builder()
+            .name("some-name")
+            .surname("some-surname")
+            .email("some@gmailcom")
+            .password("some-password")
+            .pictureUrl("some-picture-name")
+            .build();
+
     private User user = User.builder()
             .id(1)
             .name("some-name")
@@ -62,7 +71,7 @@ class UserServiceTest {
         when(passwordEncoder.encode(password)).thenReturn(password);
         when(userRepository.save(user)).thenReturn(user);
 
-        userService.registerUser(user, multipartFile);
+        userService.registerUser(userRequestDTO, multipartFile);
     }
 
 

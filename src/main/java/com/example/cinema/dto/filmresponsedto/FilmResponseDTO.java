@@ -1,5 +1,6 @@
 package com.example.cinema.dto.filmresponsedto;
 
+import com.example.cinema.entity.cinemadetail.TimeSince;
 import com.example.cinema.entity.filmdetail.Actor;
 import com.example.cinema.entity.filmdetail.Director;
 import com.example.cinema.entity.filmdetail.Genre;
@@ -30,5 +31,6 @@ public class FilmResponseDTO {
     private List<Actor> actors;
     private List<Genre> genres;
     private String ageLimit;
+    private List<TimeSince> times;
 
 }

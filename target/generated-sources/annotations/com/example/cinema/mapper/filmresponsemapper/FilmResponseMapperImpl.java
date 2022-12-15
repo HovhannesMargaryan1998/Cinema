@@ -2,6 +2,7 @@ package com.example.cinema.mapper.filmresponsemapper;
 
 import com.example.cinema.dto.filmresponsedto.FilmResponseDTO;
 import com.example.cinema.dto.filmresponsedto.FilmResponseDTO.FilmResponseDTOBuilder;
+import com.example.cinema.entity.cinemadetail.TimeSince;
 import com.example.cinema.entity.filmdetail.Actor;
 import com.example.cinema.entity.filmdetail.Film;
 import com.example.cinema.entity.filmdetail.Genre;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-12-13T17:38:25+0400",
+    date = "2022-12-15T14:09:26+0400",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.5 (Amazon.com Inc.)"
 )
 @Component
@@ -45,6 +46,10 @@ public class FilmResponseMapperImpl implements FilmResponseMapper {
             filmResponseDTO.genres( new ArrayList<Genre>( list1 ) );
         }
         filmResponseDTO.ageLimit( film.getAgeLimit() );
+        List<TimeSince> list2 = film.getTimes();
+        if ( list2 != null ) {
+            filmResponseDTO.times( new ArrayList<TimeSince>( list2 ) );
+        }
 
         return filmResponseDTO.build();
     }

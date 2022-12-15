@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-12-13T17:38:23+0400",
+    date = "2022-12-15T14:09:26+0400",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.5 (Amazon.com Inc.)"
 )
 @Component
@@ -28,6 +28,7 @@ public class CinemaRequestMapperImpl implements CinemaRequestMapper {
         cinema.email( cinemaRequestDTO.getEmail() );
         cinema.spaciousness( cinemaRequestDTO.getSpaciousness() );
         cinema.pictureUrl( cinemaRequestDTO.getPictureUrl() );
+        cinema.price( cinemaRequestDTO.getPrice() );
 
         return cinema.build();
     }

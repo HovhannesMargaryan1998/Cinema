@@ -2,10 +2,10 @@ package com.example.cinema.service;
 
 
 import com.example.cinema.dto.userrequestdto.UserRequestDTO;
-import com.example.cinema.dto.userrequestdetaildto.UserRequestDTO;
-import com.example.cinema.dto.userrequestdetaildto.UserUpdateRequestDTO;
+import com.example.cinema.dto.userrequestdto.UserUpdateRequestDTO;
 import com.example.cinema.entity.userdetail.Role;
 import com.example.cinema.entity.userdetail.User;
+import com.example.cinema.mapper.userrequestmapper.UserMapper;
 import com.example.cinema.repository.UserRepository;
 import com.example.cinema.util.CreatePictureUtil;
 import lombok.RequiredArgsConstructor;
@@ -36,12 +36,12 @@ public class UserService {
         if (!multipartFile.isEmpty() && multipartFile.getSize() > 0) {
             user.setPictureUrl(creatPicture.creatPicture(multipartFile));
         }
-       user = User.builder()
-               .password(passwordEncoder.encode(user.getPassword()))
-               .role(Role.USER)
-               .isEnable(true)
-               .registeredDate(LocalDate.now())
-               .build();
+        user = User.builder()
+                .password(passwordEncoder.encode(user.getPassword()))
+                .role(Role.USER)
+                .isEnable(true)
+                .registeredDate(LocalDate.now())
+                .build();
         userRepository.save(user);
         log.info("user registered {}", user.getEmail());
     }
@@ -60,12 +60,17 @@ public class UserService {
         map.setEnable(true);
         map.setId(id);
         userMapper.map(userRepository.save(map));
+    }
 
     public Page<User> getAllUsers(Pageable pageable) {
         if (userRepository.findAll(pageable).isEmpty()) {
             return null;
         }
         return userRepository.findAll(pageable);
+    }
+
+    public Optional<User> getUserById(int id) {
+        return userRepository.findById(id);
     }
 
     public int getCountAllUsers() {

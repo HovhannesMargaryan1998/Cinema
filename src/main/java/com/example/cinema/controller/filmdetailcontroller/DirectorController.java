@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequiredArgsConstructor
-public class AddDirectorsController {
+public class DirectorController {
 
     private final CheckImportedData checkImportedData;
     private final DirectorService directorService;
@@ -28,6 +28,7 @@ public class AddDirectorsController {
     @PostMapping("/add/director")
     public String addDirector(@ModelAttribute @Valid DirectorRequestDTO directorRequestDTO, BindingResult bindingResult,
                               @RequestParam("imageDirector") MultipartFile multipartFile, ModelMap modelMap) {
+
         if (checkImportedData.checkData(bindingResult, multipartFile, modelMap).isPresent()) {
             checkImportedData.checkData(bindingResult, multipartFile, modelMap).get();
             return "admin/addDirector";

@@ -35,7 +35,7 @@
                 <div class="col-12">
                     <div class="header__content">
                         <!-- header logo -->
-                        <a href="/home" class="header__logo">
+                        <a href="/" class="header__logo">
                             <img src="/img/logo.svg" alt="">
                         </a>
                         <!-- end header logo -->
@@ -81,7 +81,7 @@
 
                             <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuCatalog">
                                 <!--									<li><a href="">Catalog Grid</a></li>-->
-                                <li th:each="cinema: ${cinemas}" ><a th:text="${cinema.name}" th:href="@{/cinema/page{id}(id = ${cinema.id})}" ></a>
+                                <li th:each="cinema: ${cinemas}" ><a th:text="${cinema.name}" th:href="@{/cinema/page/{id}(id = ${cinema.id})}" ></a>
 
                                 </li>
                                 <!--									<li><a href="watchFilmPage.html">Details Movie</a></li>-->

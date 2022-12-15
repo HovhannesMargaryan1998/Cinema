@@ -22,9 +22,7 @@ public class ActorRequestDTO {
     private String surname;
     private String country;
     @NotNull(message = "actor's date born can't be empty")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateBorn;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateDied;
     private String pictureUrl;
     private String biography;

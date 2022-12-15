@@ -17,7 +17,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequiredArgsConstructor
-public class AddActorsController {
+public class ActorController {
 
     private final CheckImportedData checkImportedData;
     private final ActorService actorService;
@@ -26,6 +26,7 @@ public class AddActorsController {
     @PostMapping("/add/actor")
     public String addActor(@ModelAttribute @Valid ActorRequestDTO actorRequestDTO, BindingResult bindingResult,
                            @RequestParam("imageActor") MultipartFile multipartFile, ModelMap modelMap) {
+
         if (checkImportedData.checkData(bindingResult, multipartFile, modelMap).isPresent()) {
             checkImportedData.checkData(bindingResult, multipartFile, modelMap).get();
             return "admin/addActor";

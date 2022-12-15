@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
@@ -1306,18 +1306,25 @@
         <div class="row order-content">
             <div class="col-sm-8 col-xs-12 seat_content ph0">
                 <h2>order a ticket</h2>
-                <div class="entry-order-content" >
-                    <form action="/buy/ticket" id="msform" name="msform">
+                <div class="entry-order-content">
+                    <form th:action="@{|/buy/ticket/${chooseFilm.id}/${cinema.id}|}" method="post">
                         <!-- fieldsets -->
                         <fieldset>
                             <div class="wpc-content">
-                                    <h3 class="mt3">Movie</h3>
-                                <button th:each="film: ${films}" th:text="${film.getOriginalTitle()}"
-                                        th:value="${film.id}" th:href="@{|/get/choose/film/${film.id}/${cinema.id}|}"
-                                        onclick="window.open(this.getAttribute('href'));return false;"
-                                ></button>
+                                <h3 class="mt3">Movie</h3>
+                                <ul>
+                                    <li th:text="${chooseFilm.originalTitle}">
+                                    </li>
+                                </ul>
+                                <h3 class="mt3">Date</h3>
+                                <input type='date' class="datetime" name="date">
+                                <h3 class="mt3">TIME</h3>
+                                <select name="timeId">
+                                    <option th:each="time: ${timeSinceChooseFilm}" th:text="${time.time}"
+                                            th:value="${time.id}">
+                                    </option>
+                                </select>
                             </div>
-                            <input type="button" name="next" class="next action-button" value="Next">
                         </fieldset>
                         <fieldset class="seat-content">
                             <div class="wpc-content">
@@ -1325,12 +1332,15 @@
                                 <div>
                                     <img class="seat_title" src="/img/ScreenForSeating_450.png">
                                 </div>
-
-                                <div id="seat-map"></div>
-                                <div id="legend"></div>
+                                <select name="seatingNumber">
+                                    <option th:each="seat: ${seats}" th:text="${seat.number}"
+                                    th:value="${seat.number}">
+                                    </option>
+                                </select>
+                               <!--                                <div id="seat-map"></div>-->
+                                <!--                                <div id="legend"></div>-->
                             </div>
-                            <input type="button" name="previous" class="action-button previous" value="Previous">
-                            <input type="submit" name="submit" class="submit action-button" value="Submit">
+                            <input type="submit" name="submit">
                         </fieldset>
                     </form>
                 </div>
@@ -1339,13 +1349,13 @@
                 <h2>Your Information</h2>
                 <div class="order-details">
                     <span> Location:</span>
-                    <p id="locationp">Tenguu Cinema Tysons corner</p>
-                    <span>Time:</span>
-                    <p>2016.3.8 18:30</p>
-                    <span>Seat: </span>
-                    <ul id="selected-seats"></ul>
-                    <div>Tickets: <span id="counter">0</span></div>
-                    <div>Total: <b>$<span id="total">0</span></b></div>
+                    <p id="locationp" th:text="${cinema.name}"></p>
+<!--                    <span>Time:</span>-->
+<!--                    <p>2016.3.8 18:30</p>-->
+<!--                    <span>Seat: </span>-->
+<!--                    <ul id="selected-seats"></ul>-->
+<!--                    <div>Tickets: <span id="counter">0</span></div>-->
+                    <div>Total: Դր-><b th:text="${cinema.price}"><span></span></b></div>
                 </div>
                 <a href="javascript:;" class="close-window"><i class="fa fa-times"></i></a>
             </div>

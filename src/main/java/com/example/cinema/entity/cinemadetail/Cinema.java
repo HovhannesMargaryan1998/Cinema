@@ -32,5 +32,11 @@ public class Cinema {
             joinColumns = {@JoinColumn(name = "cinema_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "film_id", referencedColumnName = "id")})
     private List<Film> films;
+    @ManyToMany
+    @JoinTable(name = "seat_cinema",
+            joinColumns = {@JoinColumn(name = "cinema_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "cinema_seat_id", referencedColumnName = "id")})
+    private List<CinemaSeat> seats;
+    private double price;
 
 }

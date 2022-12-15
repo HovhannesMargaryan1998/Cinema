@@ -39,7 +39,7 @@ public class FilmService {
         film.setDirector(directorService.findById(filmRequestDTO.getDirectorId()));
         film.setGenres(allGenresById(filmRequestDTO.getGenresId()));
         film.setActors(allActorsById(filmRequestDTO.getActorsId()));
-        if (film.getStatus() == Status.IN_CINEMA){
+        if (film.getStatus() == Status.IN_CINEMA) {
             film.setTimes(allTimeSinceId(filmRequestDTO.getTimeSinceId()));
         }
         if (!multipartFile.isEmpty() && multipartFile.getSize() > 0) {
@@ -121,6 +121,18 @@ public class FilmService {
         return filmOptional.get();
     }
 
+    public Page<Film> getFilmByGenre(Genre genre, Pageable pageable) {
+        return filmRepository.findAllByGenres(genre, pageable);
+    }
+
+    public List<Film> getFilmByPremiere(int minDate, int maxDate) {
+        return filmRepository.findAllByPremiere_Year(minDate, maxDate);
+    }
+
+    public List<Film> getByRating() {
+        return filmRepository.findAllByRating();
+    }
+
     private List<Genre> allGenresById(List<Integer> genresIds) {
         var genres = new ArrayList<Genre>();
         genresIds.stream().filter(genreId -> genreId
@@ -144,23 +156,6 @@ public class FilmService {
             timeSince.add(timeSinceService.getById(t));
         });
         return timeSince;
-    public Page<Film> getFilmByGenre(Genre genre, Pageable pageable) {
-        return filmRepository.findAllByGenres(genre, pageable);
     }
 
-    public List<Film> getFilmByPremiere(int minDate, int maxDate) {
-        return filmRepository.findAllByPremiere_Year(minDate, maxDate);
-    }
-
-    public List<Film> getByRating() {
-        return filmRepository.findAllByRating();
-    }
-
-    public boolean deleteFilmById(int id) {
-        if (filmRepository.findById(id).isPresent()) {
-            filmRepository.deleteById(id);
-            return true;
-        }
-        return false;
-    }
 }

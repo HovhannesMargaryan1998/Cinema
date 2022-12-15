@@ -1,6 +1,8 @@
 package com.example.cinema.controller.userdetailcontroller.usercontroller;
 
 import com.example.cinema.dto.userrequestdto.UserRequestDTO;
+import com.example.cinema.dto.userrequestdto.UserUpdateRequestDTO;
+import com.example.cinema.entity.filmdetail.Comment;
 import com.example.cinema.mapper.userrequestmapper.UserMapper;
 import com.example.cinema.security.CurrentUser;
 import com.example.cinema.service.CommentService;
@@ -70,7 +72,7 @@ public class UserController {
             checkImportedData.checkDataAndEmail(bindingResult, userRequestDTO.getEmail(), multipartFile, modelMap).get();
             return "main/register";
         }
-        userService.registerUser(userMapper.map(userRequestDTO), multipartFile);
+        userService.registerUser(userRequestDTO, multipartFile);
         return "redirect:/user/login";
     }
 

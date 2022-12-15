@@ -1,7 +1,6 @@
 package com.example.cinema.service;
 
 import com.example.cinema.entity.filmdetail.Director;
-import com.example.cinema.mapper.filmrequestmapper.DirectorRequestMapper;
 import com.example.cinema.repository.DirectorRepository;
 import com.example.cinema.util.CreatePictureUtil;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +16,6 @@ public class DirectorService {
     private final DirectorRepository directorRepository;
     private final ActorService actorService;
     private final CreatePictureUtil createPictureUtil;
-    private final DirectorRequestMapper directorRequestMapper;
 
     public void addDirector(Director director, MultipartFile multipartFile) {
         if (!multipartFile.isEmpty() && multipartFile.getSize() > 0) {

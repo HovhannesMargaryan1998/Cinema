@@ -28,5 +28,7 @@ public class CinemaRequestDTO {
     @NotNull(message = "cinema's Spaciousness can't be empty")
     private int spaciousness;
     private String pictureUrl;
+    @NotNull(message = "cinema's Price can't be empty")
+    private double price;
 
 }
