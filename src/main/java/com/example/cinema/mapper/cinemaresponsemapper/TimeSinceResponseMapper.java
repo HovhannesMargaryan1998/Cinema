@@ -1,8 +1,6 @@
 package com.example.cinema.mapper.cinemaresponsemapper;
 
-import com.example.cinema.dto.cinemaresponsedto.CinemaResponseDTO;
 import com.example.cinema.dto.cinemaresponsedto.TimeSinceDTO;
-import com.example.cinema.entity.cinemadetail.Cinema;
 import com.example.cinema.entity.cinemadetail.TimeSince;
 import org.mapstruct.Mapper;
 

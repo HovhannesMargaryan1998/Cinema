@@ -47,15 +47,14 @@ public class AdminPageController {
     }
 
     @GetMapping("/add/film-in/cinema")
-    public String addFilmInCinema(ModelMap modelMap){
+    public String addFilmInCinema(ModelMap modelMap) {
         modelMap.addAttribute("cinemas", cinemaService.getAllCinemas());
         modelMap.addAttribute("films", filmService.getOnlyCinemaFilms());
         return "admin/addFilmInCinema";
-
     }
 
     @GetMapping("/add/cinema/page")
-    public String addCinemaPage(ModelMap modelMap){
+    public String addCinemaPage(ModelMap modelMap) {
         modelMap.addAttribute("cinemas", cinemaService.getAllCinemas());
         return "admin/addCinema";
     }
@@ -84,7 +83,7 @@ public class AdminPageController {
         return "admin/catalogFilms";
     }
 
-    @GetMapping("/films/rating")
+    @GetMapping("/get/films/rating")
     public String getFilmsByRating(@RequestParam("page") Optional<Integer> page, ModelMap modelMap,
                                    @RequestParam("size") Optional<Integer> size) {
 

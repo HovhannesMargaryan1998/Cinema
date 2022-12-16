@@ -1,5 +1,6 @@
 package com.example.cinema.config;
 
+import com.example.cinema.entity.userdetail.Role;
 import com.example.cinema.security.UserDetailsImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,7 +15,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsImpl userDetails;
     private final PasswordEncoder passwordEncoder;
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -31,6 +31,23 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/user/profile").authenticated()
                 .antMatchers("/cinema/**").authenticated()
+                .antMatchers("/add/film").hasAnyAuthority(Role.ADMIN.name())
+                .antMatchers("/add/film-in/cinema").hasAnyAuthority(Role.ADMIN.name())
+                .antMatchers("/add/cinema/page").hasAnyAuthority(Role.ADMIN.name())
+                .antMatchers("/catalog/films").hasAnyAuthority(Role.ADMIN.name())
+                .antMatchers("/films/premiere").hasAnyAuthority(Role.ADMIN.name())
+                .antMatchers("/get/films/rating").hasAnyAuthority(Role.ADMIN.name())
+                .antMatchers("/users/all").hasAnyAuthority(Role.ADMIN.name())
+                .antMatchers("/add/actor").hasAnyAuthority(Role.ADMIN.name())
+                .antMatchers("/film/delete/{id}").hasAnyAuthority(Role.ADMIN.name())
+                .antMatchers("/send/comment").hasAnyAuthority(Role.ADMIN.name(), Role.USER.name())
+                .antMatchers("/editUser").hasAnyAuthority(Role.USER.name())
+                .antMatchers("/editUser/{id").hasAnyAuthority(Role.USER.name())
+                .antMatchers("/user/comments").hasAnyAuthority(Role.USER.name())
+                .antMatchers("/user/delete/{id}").hasAnyAuthority(Role.USER.name())
+                .antMatchers("/buy/ticket/{filmId}/{cinemaId}").hasAnyAuthority(Role.ADMIN.name(), Role.USER.name())
+                .antMatchers("/cinema/page/{id}").hasAnyAuthority(Role.ADMIN.name(), Role.USER.name())
+                .antMatchers("/get/choose/film/{id}/{cinemaId}").hasAnyAuthority(Role.ADMIN.name(), Role.USER.name())
                 .anyRequest().permitAll();
 
 

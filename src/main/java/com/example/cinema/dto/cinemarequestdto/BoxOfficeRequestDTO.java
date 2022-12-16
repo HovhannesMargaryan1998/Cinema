@@ -14,12 +14,13 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class BoxOfficeRequestDTO {
-    @NotNull
+    @NotNull(message = "time since can't be empty")
     private int timeId;
     private double price;
     private int userId;
     private int cinemaId;
     private int filmId;
+    @NotNull(message = "seating number can't be empty")
     private int seatingNumber;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;

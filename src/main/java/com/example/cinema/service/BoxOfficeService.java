@@ -25,8 +25,11 @@ public class BoxOfficeService {
         boxOffice.setCinema(cinemaService.getCinemaById(cinemaId));
         boxOffice.setUser(userService.getUserById(userId).get());
         boxOffice.setPrice(cinemaService.getCinemaById(cinemaId).getPrice());
-        boxOfficeRepository.save(boxOffice);
-        return isUniqueTicket(boxOffice);
+        if (isUniqueTicket(boxOffice)){
+            boxOfficeRepository.save(boxOffice);
+            return true;
+        }
+        return false;
     }
 
     private boolean isUniqueTicket(BoxOffice boxOffice) {

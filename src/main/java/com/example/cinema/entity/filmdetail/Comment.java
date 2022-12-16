@@ -2,7 +2,6 @@ package com.example.cinema.entity.filmdetail;
 
 import com.example.cinema.entity.userdetail.User;
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Objects;

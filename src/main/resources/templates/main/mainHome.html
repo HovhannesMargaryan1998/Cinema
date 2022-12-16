@@ -34,6 +34,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="header__content">
+                        <span th:if="errorMessageVerify != null" th:text="${errorMessageVerify}"></span>
+                        <span th:if="errorMessageDoesntEmailOrAlreadyEnabled != null" th:text="${errorMessageDoesntEmailOrAlreadyEnabled}"></span>
                         <!-- header logo -->
                         <a href="/" class="header__logo">
                             <img src="/img/logo.svg" alt="">

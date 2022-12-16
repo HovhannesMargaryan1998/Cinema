@@ -1,4 +1,4 @@
-package com.example.cinema.controller.userdetailcontroller.usercontroller;
+package com.example.cinema.controller.userdetailcontroller;
 
 import com.example.cinema.dto.userrequestdto.UserRequestDTO;
 import com.example.cinema.dto.userrequestdto.UserUpdateRequestDTO;
@@ -30,6 +30,7 @@ public class UserController {
     private final UserService userService;
     private final CommentService commentService;
     private final UserMapper userMapper;
+
 
     @GetMapping("/login")
     public String login() {
@@ -72,8 +73,28 @@ public class UserController {
             checkImportedData.checkDataAndEmail(bindingResult, userRequestDTO.getEmail(), multipartFile, modelMap).get();
             return "main/register";
         }
+        if (userService.sendEmail(userMapper.map(userRequestDTO))) {
+            modelMap.addAttribute("errorMessageSendEmail", "send email failed");
+        }
         userService.registerUser(userRequestDTO, multipartFile);
         return "redirect:/user/login";
+    }
+
+    @GetMapping("/user/verify")
+    public String verifyUser(@RequestParam("email") String email, ModelMap modelMap,
+                             @RequestParam("token") String token) {
+        try {
+            if (!userService.verifyUser(email, token)) {
+                modelMap.addAttribute("errorMessageDoesntEmailOrAlreadyEnabled",
+                        "User Does not exists with email and token or User already enabled");
+                return "main/mainHome";
+            }
+            userService.verifyUser(email, token);
+        } catch (Exception e) {
+            modelMap.addAttribute("errorMessageVerify", "verify with email failed");
+            return "main/mainHome";
+        }
+        return "redirect:/";
     }
 
     @PostMapping("/editUser/{id}")

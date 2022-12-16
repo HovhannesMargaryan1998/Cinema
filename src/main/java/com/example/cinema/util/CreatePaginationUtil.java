@@ -1,12 +1,12 @@
 package com.example.cinema.util;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-@Service
+@Component
 public class CreatePaginationUtil {
 
     public List<Integer> createPageNumbers(int totalPages) {

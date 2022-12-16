@@ -43,8 +43,8 @@ public class WatchFilmPageController {
     public String sendComment(@RequestParam("text") String text,
                               @AuthenticationPrincipal CurrentUser currentUser,
                               @RequestParam("filmId") int film_id,
-                              ModelMap modelMap
-    ) {
+                              ModelMap modelMap) {
+
         Film filmId = filmService.saveComment(text, currentUser.getUser(), film_id);
         modelMap.addAttribute("film", filmId);
         modelMap.addAttribute("user", currentUser);
