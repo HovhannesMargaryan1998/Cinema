@@ -50,11 +50,6 @@ public class FilmController {
         return "/admin/addDirector";
     }
 
-    @GetMapping("/watch/film")
-    public String singleFilmPage() {
-        return "main/watchFilmPage";
-    }
-
     @GetMapping("/film/image")
     public @ResponseBody byte[] getImage(@RequestParam("picName") String fileName) {
         if (createPictureUtil.getImage(fileName) == null) {
@@ -63,13 +58,11 @@ public class FilmController {
         return createPictureUtil.getImage(fileName);
     }
 
-
-    @GetMapping("/films")
+    @GetMapping("/film")
     public String allFilmsPage(ModelMap modelMap) {
         modelMap.addAttribute("genres", genreService.findAllGenres());
         return "main/allFilmsPage";
     }
-
 
     @GetMapping("/films/genre")
     public String filmsPage(@ModelAttribute Genre genre,
@@ -96,18 +89,18 @@ public class FilmController {
                             @RequestParam(name = "maxYear") int maxYear,
                             ModelMap modelMap) {
         List<Film> filmByPremiere = filmService.getFilmByPremiere(minYear, maxYear);
-        modelMap.addAttribute("films",filmByPremiere);
+        modelMap.addAttribute("films", filmByPremiere);
         return "main/allFilmsPage";
     }
 
     @GetMapping("/films/rating")
     public String getByRating(ModelMap modelMap) {
+
         List<Film> byRating = filmService.getByRating();
         modelMap.addAttribute("films", byRating);
         return "main/allFilmsPage";
 
     }
-
 
     @PostMapping("/add/film")
     public String addFilm(@ModelAttribute @Valid FilmRequestDTO filmRequestDTO, BindingResult bindingResult,

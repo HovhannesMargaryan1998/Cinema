@@ -22,7 +22,6 @@ public class DirectorController {
 
     private final CheckImportedData checkImportedData;
     private final DirectorService directorService;
-
     private final DirectorRequestMapper directorRequestMapper;
 
     @PostMapping("/add/director")

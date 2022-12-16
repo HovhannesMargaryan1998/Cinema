@@ -43,7 +43,7 @@ public class CinemaPageController {
     public String getChooseFilm(@PathVariable("id") int id, @PathVariable("cinemaId") int cinemaId, ModelMap modelMap,
                                 @AuthenticationPrincipal CurrentUser currentUser) {
 
-        modelMap.addAttribute("cinema", cinemaService.getCinemaById(cinemaId));
+        modelMap.addAttribute("cinema", cinemaResponseMapper.map(cinemaService.getCinemaById(cinemaId)));
         modelMap.addAttribute("seats", cinemaSeatResponseMapper.map(cinemaSeatService.getSeatsByCinemaId(cinemaId)));
         modelMap.addAttribute("user", userMapper.map(currentUser.getUser()));
         modelMap.addAttribute("chooseFilm", filmResponseMapper.map(filmService.getFilmById(id)));

@@ -3,6 +3,7 @@ package com.example.cinema.service;
 
 import com.example.cinema.dto.userrequestdto.UserRequestDTO;
 import com.example.cinema.dto.userrequestdto.UserUpdateRequestDTO;
+import com.example.cinema.dto.userresponsedto.UserResponseDTO;
 import com.example.cinema.entity.userdetail.Role;
 import com.example.cinema.entity.userdetail.User;
 import com.example.cinema.mapper.userrequestmapper.UserMapper;
@@ -14,11 +15,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.mail.MessagingException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -29,21 +33,34 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final UserMapper userMapper;
-
+    private final MailService mailService;
+    private final FilmService filmService;
 
     public void registerUser(UserRequestDTO userRegisterRequestDTO, MultipartFile multipartFile) {
         User user = userMapper.map(userRegisterRequestDTO);
         if (!multipartFile.isEmpty() && multipartFile.getSize() > 0) {
             user.setPictureUrl(creatPicture.creatPicture(multipartFile));
         }
-        user = User.builder()
-                .password(passwordEncoder.encode(user.getPassword()))
-                .role(Role.USER)
-                .isEnable(true)
-                .registeredDate(LocalDate.now())
-                .build();
-        userRepository.save(user);
+
+        userRepository.save(userBuild(user));
+        sendEmail(user);
         log.info("user registered {}", user.getEmail());
+    }
+
+    public boolean verifyUser(String email, String token) {
+        Optional<User> userOptional = userRepository.findByEmailAndToken(email, token);
+        if (userOptional.isEmpty()) {
+            return false;
+        }
+        User user = userOptional.get();
+        if (user.isEnable()) {
+            return false;
+        }
+        user.setEnable(true);
+        user.setToken(null);
+        userRepository.save(user);
+        log.info("user is verified{}", email);
+        return true;
     }
 
     public boolean checkUniqueEmail(String email) {
@@ -90,6 +107,40 @@ public class UserService {
             return true;
         }
         return false;
+    }
+
+    public boolean sendEmail(User user) {
+        try {
+            mailService.sendHtmlEmail(user.getEmail(), "Please verify your email",
+                    "Hi " + user.getName() + "\n" +
+                            "Please verify your account by clicking on this link " +
+                            "<a href=\"http://localhost:8080/user/verify?email=" + user.getEmail() + "&token=" + user.getToken() + "\">Activate</a>");
+
+        } catch (MessagingException e) {
+            log.error("error verify user by email");
+            return false;
+        }
+        return true;
+    }
+
+    public ModelMap addAttributeForAdminPage(ModelMap modelMap, UserResponseDTO userResponse) {
+        modelMap.addAttribute("user", userResponse);
+        modelMap.addAttribute("countFilms", filmService.getCountAllFilms());
+        modelMap.addAttribute("countUsers", getCountAllUsers());
+        modelMap.addAttribute("topFiveFilmsByRating", filmService.getFiveFilmsByRating());
+        modelMap.addAttribute("lastFiveUsers", getLastFiveUsers());
+        return modelMap;
+    }
+
+    private User userBuild(User user) {
+        user = User.builder()
+                .password(passwordEncoder.encode(user.getPassword()))
+                .role(Role.USER)
+                .isEnable(false)
+                .registeredDate(LocalDate.now())
+                .token(UUID.randomUUID().toString())
+                .build();
+        return user;
     }
 
 }

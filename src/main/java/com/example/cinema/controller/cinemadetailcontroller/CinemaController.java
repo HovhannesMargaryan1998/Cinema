@@ -53,7 +53,7 @@ public class CinemaController {
 
     @PostMapping("/buy/ticket/{filmId}/{cinemaId}")
     public String buyTicket(@PathVariable("filmId") int filmId, @PathVariable("cinemaId") int cinemaId,
-                            @ModelAttribute BoxOfficeRequestDTO boxOfficeRequestDTO,
+                            @ModelAttribute @Valid BoxOfficeRequestDTO boxOfficeRequestDTO,
                             @AuthenticationPrincipal CurrentUser currentUser) {
 
         if (boxOfficeService.createBoxOffice(boxOfficeRequestDTO, filmId, cinemaId, currentUser.getUser().getId())) {

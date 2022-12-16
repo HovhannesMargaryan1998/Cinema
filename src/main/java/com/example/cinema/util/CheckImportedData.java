@@ -1,10 +1,8 @@
 package com.example.cinema.util;
 
-import com.example.cinema.dto.userrequestdto.UserRequestDTO;
-import com.example.cinema.mapper.userrequestmapper.UserMapper;
 import com.example.cinema.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -13,13 +11,12 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class CheckImportedData {
 
     private final CreatePictureUtil createPictureUtil;
     private final UserService userService;
-    private final UserMapper userMapper;
 
     public Optional<ModelMap> checkData(BindingResult bindingResult, MultipartFile multipartFile, ModelMap modelMap) {
         if (bindingResult.hasErrors() || (createPictureUtil.isPictureNotAllowedType(multipartFile))) {

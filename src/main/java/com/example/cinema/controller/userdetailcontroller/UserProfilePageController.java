@@ -1,11 +1,10 @@
-package com.example.cinema.controller.userdetailcontroller.usercontroller;
+package com.example.cinema.controller.userdetailcontroller;
 
 
 import com.example.cinema.dto.userresponsedto.UserResponseDTO;
 import com.example.cinema.entity.userdetail.Role;
 import com.example.cinema.mapper.userrequestmapper.UserMapper;
 import com.example.cinema.security.CurrentUser;
-import com.example.cinema.service.FilmService;
 import com.example.cinema.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -20,18 +19,13 @@ public class UserProfilePageController {
 
     private final UserMapper userMapper;
     private final UserService userService;
-    private final FilmService filmService;
 
     @GetMapping("/user/profile")
     public String userProfilePage(@AuthenticationPrincipal CurrentUser currentUser, ModelMap modelMap) {
         if (currentUser != null) {
-            UserResponseDTO userResponse = userMapper.map(currentUser.getUser());
-            modelMap.addAttribute("user", userResponse);
-            modelMap.addAttribute("countFilms", filmService.getCountAllFilms());
-            modelMap.addAttribute("countUsers", userService.getCountAllUsers());
-            modelMap.addAttribute("topFiveFilmsByRating", filmService.getFiveFilmsByRating());
-            modelMap.addAttribute("lastFiveUsers", userService.getLastFiveUsers());
-            if (userResponse.getRole() == Role.USER) {
+            UserResponseDTO userResponseDTO = userMapper.map(currentUser.getUser());
+            if (userResponseDTO.getRole() == Role.USER) {
+                userService.addAttributeForAdminPage(modelMap, userResponseDTO);
                 return "main/userProfilePage";
             } else {
                 return "admin/adminPage";
@@ -39,5 +33,6 @@ public class UserProfilePageController {
         }
         return "redirect:/";
     }
+
 
 }
